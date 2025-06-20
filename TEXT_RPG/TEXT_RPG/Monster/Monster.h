@@ -1,5 +1,5 @@
 #pragma once
-// #include "Item.h"
+#include "../item/Item.h"
 #include <string>
 
 using namespace std;
@@ -10,7 +10,8 @@ public:
     virtual int getHealth() const = 0;              // 체력
     virtual int getAttack() const = 0;              // 공격력
     virtual void takeDamage(int damage) = 0;        // 데미지 처리
-    // virtual Item* dropItem() = 0;                // 드랍 아이템 반환
+    virtual Item* dropItem() = 0;                   // 아이템 드랍 함수
+    virtual int dropGold() const = 0;                     // 골드 드랍 함수
     virtual ~Monster() = default;                   // 다형성을 위한 가상 소멸자
 };
 
@@ -24,7 +25,9 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    // Item* dropItem() override;
+    
+    Item* dropItem() override;
+    int dropGold() override;
 
 private:
     string name;
@@ -39,7 +42,9 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    // Item* dropItem() override;
+    
+    Item* dropItem() override;
+    int dropGold() override;
 
 private:
     string name;
@@ -54,7 +59,9 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    // Item* dropItem() override;
+    
+    Item* dropItem() override;
+    int dropGold() override;
 
 private:
     string name;
@@ -69,7 +76,9 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    // Item* dropItem() override;
+    
+    Item* dropItem() override;
+    int dropGold() override;
 
 private:
     string name;

@@ -14,7 +14,7 @@ using namespace std;
 
 class Character; // 아직 없어서 전방 선언 해놓은 것임  
 
-//dd
+
 
 class Shop {
 private:

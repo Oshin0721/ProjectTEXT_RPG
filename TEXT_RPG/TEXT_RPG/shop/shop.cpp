@@ -31,12 +31,12 @@ void Shop::buyItem(int index, Character* player) {
 		return;
 	}
 	auto& item = availableItems[index];
-	if (player.getGold() < item->getbuyprice()) {
+	if (player.getGold() < item->getBuyPrice()) {
 		cout << "골드가 부족합니다." << endl;
 		return;
 	}
 	Character.addItem(item->clone()); // 아이템을 플레이어에게 추가
-	Character.setGold(player.getGold() - item->getbuyprice()); // 골드 차감
+	Character.setGold(player.getGold() - item->getBuyPrice()); // 골드 차감
 	cout << item->getName() << "을(를) 구매했습니다!" << endl;
 }
 void Shop::sellItem(int index, Character* player) {   //캐릭터 클래스 필요함
@@ -45,7 +45,7 @@ void Shop::sellItem(int index, Character* player) {   //캐릭터 클래스 필요함
 		return;
 	}
 	auto& item = player.getItems()[itemIndex];
-	player.setGold(player.getGold() + item->getsellprice()); // 골드 증가
+	player.setGold(player.getGold() + item->getSellPrice()); // 골드 증가
 	player.removeItem(itemIndex); // 아이템 제거
 	cout << item->getName() << "을(를) 판매했습니다!" << endl;
 }

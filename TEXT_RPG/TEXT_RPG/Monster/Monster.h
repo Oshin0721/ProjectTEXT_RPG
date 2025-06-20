@@ -11,7 +11,7 @@ public:
     virtual int getAttack() const = 0;              // 공격력
     virtual void takeDamage(int damage) = 0;        // 데미지 처리
     virtual Item* dropItem() = 0;                   // 아이템 드랍 함수
-    virtual int dropGold() = 0;                     // 골드 드랍 함수
+    virtual int dropGold() const = 0;                     // 골드 드랍 함수
     virtual ~Monster() = default;                   // 다형성을 위한 가상 소멸자
 };
 

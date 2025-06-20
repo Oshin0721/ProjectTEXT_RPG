@@ -29,6 +29,9 @@ public:
     void takeDamage(int damage);
     bool isDead() const;
 
+    void restoreHealth(int amount);       // 체력 회복
+    void increaseAttack(int amount);      // 공격력 증가
+
     void addItem(Item* item);
     void useItem(int index);
     void visitShop();

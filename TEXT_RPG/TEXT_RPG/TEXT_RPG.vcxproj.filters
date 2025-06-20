@@ -18,9 +18,27 @@
     <ClCompile Include="TEXT_RPG.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="item\Attacckboost.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="item\HealthPotion.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="shop\shop.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="item\item.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="item\AttackBoost.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="item\HealthPotion.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="shop\shop.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

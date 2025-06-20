@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "Item.h" // 아이템 클래스 사용 위해서
+#include "../item/Item.h" // 아이템 클래스 사용 위해서
 
 class Character {
 private:

@@ -27,7 +27,7 @@
     <ClCompile Include="shop\shop.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Monster\Monster.cpp">
+    <ClCompile Include="Monster.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Character\Character.cpp">
@@ -35,7 +35,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="item\item.h">
+    <ClInclude Include="item\Item.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="item\AttackBoost.h">
@@ -47,7 +47,7 @@
     <ClInclude Include="shop\shop.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Monster\Monster.h">
+    <ClInclude Include="Monster.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Character\Character.h">

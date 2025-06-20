@@ -126,7 +126,7 @@
     <ClCompile Include="Character\Character.cpp" />
     <ClCompile Include="item\Attacckboost.cpp" />
     <ClCompile Include="item\HealthPotion.cpp" />
-    <ClCompile Include="Monster\Monster.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="shop\shop.cpp" />
     <ClCompile Include="TEXT_RPG.cpp" />
   </ItemGroup>
@@ -134,8 +134,8 @@
     <ClInclude Include="Character\Character.h" />
     <ClInclude Include="item\AttackBoost.h" />
     <ClInclude Include="item\HealthPotion.h" />
-    <ClInclude Include="item\item.h" />
-    <ClInclude Include="Monster\Monster.h" />
+    <ClInclude Include="item\Item.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="shop\shop.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

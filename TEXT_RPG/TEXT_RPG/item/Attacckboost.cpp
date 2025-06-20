@@ -18,3 +18,13 @@ void AttackBoost::use(Character* character)
 	character->increaseAttack(attackIncrease); //공격력증가
 	cout << name << "사용 +" << attackIncrease << "공격력 증가 완료" << endl;
 }
+
+int AttackBoost::getBuyPrice() const
+{
+	return buyPrice;
+}
+
+int AttackBoost::getSellPrice() const
+{
+	return sellPrice;
+}

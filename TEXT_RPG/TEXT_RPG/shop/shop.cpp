@@ -1,7 +1,8 @@
 #include "shop.h"
 #include <iostream>
-
 using namespace std;
+
+
 
 Shop::Shop() {
 	cout << "상점이 열렸습니다!" << endl;
@@ -25,27 +26,46 @@ void Shop::displayItems() const {
 		cout << i + 1 << ". " << availableItems[i]->getName() << " - 가격: " << availableItems[i]->getbuyprice() << endl;
 	}
 }
-void Shop::buyItem(int index, Character* player) {
-	if (index < 0 || index >= availableItems.size()) {
-		cout << "잘못된 아이템 선택입니다." << endl;
-		return;
-	}
-	auto& item = availableItems[index];
-	if (player.getGold() < item->getBuyPrice()) {
-		cout << "골드가 부족합니다." << endl;
-		return;
-	}
-	Character.addItem(item->clone()); // 아이템을 플레이어에게 추가
-	Character.setGold(player.getGold() - item->getBuyPrice()); // 골드 차감
-	cout << item->getName() << "을(를) 구매했습니다!" << endl;
+void Shop::buyItem(int index, Character* player) 
+{  
+    if (index < 0 || index >= availableItems.size())
+    {  
+        cout << "잘못된 아이템 선택입니다." << endl;  
+        return;  
+    }  
+    auto& item = availableItems[index];  
+    if (player->getGold() < item->getBuyPrice())
+    {  
+        cout << "골드가 부족합니다." << endl;  
+        return;  
+    }  
+	int thistimegold = player->getGold();
+    
+    player->addItem(item.get());  
+	player->addGold(player->getGold()- player->getGold());
+    player->addGold(thistimegold - item->getBuyPrice());  
+    cout << item->getName() << "을(를) 구매했습니다!" << endl;  
 }
-void Shop::sellItem(int index, Character* player) {   //캐릭터 클래스 필요함
-	if (index < 0 || index >= player.getItems().size()) {
-		cout << "잘못된 아이템 선택입니다." << endl;
-		return;
-	}
-	auto& item = player.getItems()[itemIndex];
-	player.setGold(player.getGold() + item->getSellPrice()); // 골드 증가
-	player.removeItem(itemIndex); // 아이템 제거
-	cout << item->getName() << "을(를) 판매했습니다!" << endl;
+void Shop::sellItem(int index, Character* player)
+{    
+    if (index < 0 || index >= player->getInventorySize())
+    { 
+        cout << "잘못된 아이템 선택입니다." << endl;
+        return;
+    }
+    if (player->getInventorySize() == 0) {
+        cout << "인벤토리에 아이템이 없습니다." << endl;
+        return;
+    }
+
+    
+	Item* item = player->getItem(index); //아이템 인벤토리에서 가져오기
+
+    
+	player->addGold(player->getGold() + item->getSellPrice());//아이템 판매 가격을 플레이어의 골드에 추가
+
+
+	player->removeItem(index);//아이템을 인벤토리에서 제거 추가 해주시면 감사합니다.
+
+    cout << item->getName() << "을(를) 판매했습니다!" << endl;
 }

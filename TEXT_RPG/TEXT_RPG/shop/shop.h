@@ -1,8 +1,7 @@
-#pragma once
 #ifndef SHOP_H  
 #define SHOP_H  
 
-#include <iostream>  
+
 #include <string>  
 #include <vector>  
 #include "../Item/Item.h" // 상대 경로로 수정하여 Item.h 파일을 올바르게 참조
@@ -10,7 +9,7 @@
 #include "../Item/AttackBoost.h" // 상대 경로로 수정하여 AttackBoost.h 파일을 올바르게 참조
 
 
-using namespace std;
+
 
 class Character; // 아직 없어서 전방 선언 해놓은 것임  
 

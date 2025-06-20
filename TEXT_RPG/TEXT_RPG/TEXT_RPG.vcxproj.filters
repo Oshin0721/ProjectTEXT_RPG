@@ -27,7 +27,10 @@
     <ClCompile Include="shop\shop.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Monster.cpp">
+    <ClCompile Include="Monster\Monster.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Character.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +47,10 @@
     <ClInclude Include="shop\shop.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Monster.h">
+    <ClInclude Include="Monster\Monster.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Character.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -18,3 +18,12 @@ void HealthPotion::use(Character* character)
 	character->restoreHealth(healthRestore); // 캐릭터 체력 증가인데 아직 없음
 	cout << name << "사용!" << healthRestore << "HP 회복" << endl;
 }
+int HealthPotion::getBuyPrice() const
+{
+	return buyPrice;
+}
+
+int HealthPotion::getSellPrice() const
+{
+	return sellPrice;
+}

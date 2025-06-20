@@ -1,7 +1,9 @@
-#pragma once
+#ifndef CHARACTER_H
+#define CHARACTER_H
+
 #include <string>
 #include <vector>
-#include "../item/Item.h" // 아이템 클래스 사용 위해서
+#include "../Item/Item.h" // 상대 경로로 수정하여 Item.h 파일을 찾을 수 있도록 설정
 
 class Character {
 private:
@@ -27,6 +29,9 @@ public:
     void takeDamage(int damage);
     bool isDead() const;
 
+    void restoreHealth(int amount);       // 체력 회복
+    void increaseAttack(int amount);      // 공격력 증가
+
     void addItem(Item* item);
     void useItem(int index);
     void visitShop();
@@ -41,3 +46,4 @@ public:
     Item* getItem(int index);
 };
 
+#endif // CHARACTER_H

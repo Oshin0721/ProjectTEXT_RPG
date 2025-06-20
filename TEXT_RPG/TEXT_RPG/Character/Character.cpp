@@ -1,7 +1,7 @@
 #include "Character.h"
 #include <iostream>
 #include <iomanip>
-#include "Shop.h"
+#include "../shop/Shop.h"
 
 Character* Character::instance = nullptr; // 싱글톤 인스턴스 초기화
 
@@ -97,7 +97,7 @@ void Character::useItem(int index)
         return;
     }
     Item* item = inventory[index];
-    item->use(*this); // 아이템 사용 시 Character 객체를 참조로 넘김
+    item->use(this); // 아이템 사용 시 Character 객체의 포인터를 넘김
     delete item;
     inventory.erase(inventory.begin() + index);
 }

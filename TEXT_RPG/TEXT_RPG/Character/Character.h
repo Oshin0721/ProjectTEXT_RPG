@@ -34,6 +34,7 @@ public:
 
     void addItem(Item* item);
     void useItem(int index);
+    void removeItem(int index); // 추가 : 인벤토리에서 아이템 제거
     void visitShop();
 
     std::string getName() const;
@@ -45,5 +46,5 @@ public:
     int getInventorySize() const;
     Item* getItem(int index);
 };
-//removeItem(index);아이템을 인벤토리에서 제거 추가 해주시면 감사합니다.
+
 #endif // CHARACTER_H

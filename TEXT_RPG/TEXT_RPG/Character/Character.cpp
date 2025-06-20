@@ -91,15 +91,31 @@ void Character::addItem(Item* item)
 // 아이템 사용 함수
 void Character::useItem(int index)
 {
-    if (index < 0 || index >= inventory.size())
+    if (index >= 0 && index < inventory.size())
     {
-        std::cout << "잘못된 인덱스입니다." << std::endl;
-        return;
+        inventory[index]->use(this);
+        delete inventory[index]; // 메모리 해제
+        inventory.erase(inventory.begin() + index); // 인벤토리에서 제거
     }
-    Item* item = inventory[index];
-    item->use(this); // 아이템 사용 시 Character 객체의 포인터를 넘김
-    delete item;
-    inventory.erase(inventory.begin() + index);
+    else
+    {
+        std::cout << "[오류] 잘못된 인벤토리 인덱스입니다." << std::endl;
+    }
+}
+
+// 아이템 제거 함수 (상점에 판매)
+void Character::removeItem(int index)
+{
+    if (index >= 0 && index < inventory.size())
+    {
+        std::cout << "[아이템 판매] " << inventory[index]->getName() << " 판매 완료." << std::endl;
+        delete inventory[index]; // 메모리 해제
+        inventory.erase(inventory.begin() + index); // 인벤토리에서 제거
+    }
+    else
+    {
+        std::cout << "[오류] 잘못된 인벤토리 인덱스입니다." << std::endl;
+    }
 }
 
 // 상점 방문 함수

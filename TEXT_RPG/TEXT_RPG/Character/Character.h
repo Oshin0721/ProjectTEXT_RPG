@@ -45,5 +45,5 @@ public:
     int getInventorySize() const;
     Item* getItem(int index);
 };
-
+//removeItem(index);아이템을 인벤토리에서 제거 추가 해주시면 감사합니다.
 #endif // CHARACTER_H

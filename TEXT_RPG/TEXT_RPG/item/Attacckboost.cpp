@@ -6,7 +6,7 @@
 using namespace std;
 
 AttackBoost::AttackBoost()
-	: name("공격력 증가"), attackIncrease(10) {} // 공격력 증가 초기값
+	: name("공격력 강화"), attackIncrease(10) {} // 공격력 증가 초기값 //증가->강화 수정
 
 string AttackBoost::getName() const // 아이템 이름 반환
 {

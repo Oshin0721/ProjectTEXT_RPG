@@ -11,7 +11,7 @@ private:
 
 public:
 	void generateMonster(int level);
-	void battle(character* player);
+	void battle(Character* character);
 	void displayInventory();
 	void visitShop();
 	int random = rand();

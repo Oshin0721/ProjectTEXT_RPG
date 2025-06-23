@@ -34,17 +34,17 @@ void Goblin::takeDamage(int damage) {
 }
 
 //아이템 드랍: 50% 확률은 회복포션, 25퍼센트 확률은 공격력 증가, 나머지는 없음
-Item* Goblin::dropItem()
+unique_ptr<Item> Goblin::dropItem()
 {
     int roll = rand() % 100;
 
     if (roll < 50)
     {
-        return new HealthPotion();      //50% 확률 회복포션 드랍
+        return make_unique<HealthPotion>();;      //50% 확률 회복포션 드랍
     }
     else if (roll < 75)
     {
-        return new AttackBoost();      //25% 확률 공격력 증가 드랍
+        return make_unique<AttackBoost>();      //25% 확률 공격력 증가 드랍
     }
     else
     {
@@ -53,7 +53,8 @@ Item* Goblin::dropItem()
 }
 
 // 골드 드랍: 고블린은 10~30골드 드랍
-int Goblin::dropGold() {
+int Goblin::dropGold() const 
+{
     return getRandomInRange(5, 25);
 }
 
@@ -74,17 +75,17 @@ void Orc::takeDamage(int damage) {
 }
 
 //아이템 드랍: 40% 회복 포션 40% 공격력 증가 20% 없음
-Item* Orc::dropItem()
+unique_ptr<Item> Orc::dropItem()
 {
     int roll = rand() % 100;
 
     if (roll < 40)
     {
-        return new HealthPotion();    // 40% 확률
+        return make_unique<HealthPotion>();    // 40% 확률
     }
     else if (roll < 80)
     {
-        return new AttackBoost();     // 40% 확률
+        return make_unique<AttackBoost>();     // 40% 확률
     }
     else
     {
@@ -92,7 +93,7 @@ Item* Orc::dropItem()
     }
 }
 
-int Orc::dropGold()
+int Orc::dropGold() const
 {
     return getRandomInRange(10, 40);  // Orc는 10~40 골드 드랍
 }
@@ -114,17 +115,17 @@ void Troll::takeDamage(int damage) {
 }
 
 //아이템 드랍: 30% 회복 포션 40% 공격력 증가 20% 없음
-Item* Troll::dropItem()
+unique_ptr<Item> Troll::dropItem()
 {
     int roll = rand() % 100;
 
     if (roll < 30)
     {
-        return new HealthPotion();
+        return make_unique<HealthPotion>();
     }
     else if (roll < 70)
     {
-        return new AttackBoost();
+        return make_unique<AttackBoost>();
     }
     else
     {
@@ -132,7 +133,7 @@ Item* Troll::dropItem()
     }
 }
 
-int Troll::dropGold()
+int Troll::dropGold() const
 {
     return getRandomInRange(20, 50);    //골드 범위 20~50골드
 }
@@ -154,21 +155,21 @@ void BossMonster::takeDamage(int damage) {
 }
 
 //아이템 드랍: 60%회복 그외 공격력 증가
-Item* BossMonster::dropItem()
+unique_ptr<Item> BossMonster::dropItem()
 {
     int roll = rand() % 100;
 
     if (roll < 60)
     {
-        return new HealthPotion();
+        return make_unique<HealthPotion>();
     }
     else
     {
-        return new AttackBoost();  // Boss는 무조건 아이템 드랍
+        return make_unique<AttackBoost>();  // Boss는 무조건 아이템 드랍
     }
 }
 
-int BossMonster::dropGold()
+int BossMonster::dropGold() const
 {
     return getRandomInRange(100, 200);  //100~200골드사이 드랍
 }

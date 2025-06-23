@@ -1,10 +1,13 @@
 ﻿#include <iostream>
 #include <cstdlib> // rand(), srand()
+#include <ctime>
 #include "GameManager.h"
+
 #include "../Character/Character.h"
 #include "../item/AttackBoost.h"
 #include "../item/HealthPotion.h"
 #include "../Monster/Monster.h"
+#include "../shop/shop.h"
 
 
 Monster* GameManager::generateMonster(int level)

@@ -1,21 +1,16 @@
-﻿#pragma once
-#include <iostream>
-#include <cstdlib> // rand(), srand()
+﻿#ifndef GAMEMANAGER_H
+#define GAMEMANAGER_H
 
-#include 
-#include 
-
-using namespace std;
-
+class Character;
 
 class GameManager
 {
 private:
 
 public:
-	void generateMonster(int level);
-	void battle(Charactor* player);
-	void displayInventory(Charactor* player);
-	void visitShop(Charactor* player);
-	int random = rand();
-};;
+    Monster* generateMonster(int level);
+    void battle(Character* player);
+    void visitShop(Character* player);
+};
+
+#endif

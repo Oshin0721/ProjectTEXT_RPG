@@ -8,18 +8,20 @@
 #include "../Item/HealthPotion.h"
 #include "../Item/AttackBoost.h" // 상대 경로로 수정하여 AttackBoost.h 파일을 올바르게 참조
 
-
+class Character;
 
 class Shop {
 private:
     std::vector<std::unique_ptr<Item>> availableItems; // std::를 추가하여 네임스페이스 명시
     Character* player;
+
 public:
+    Shop(Character* player);
 	void shopClose();
     void displayItems() const;
     void buyItem(int index);
     void sellItem(int index);
-    Shop(Character* player);
+    void interact(Character* player);
 };
 
 #endif // SHOP_H

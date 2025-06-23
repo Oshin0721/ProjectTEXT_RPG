@@ -1,4 +1,5 @@
 ﻿#include "shop.h"
+#include "../Character/Character.h"
 #include <iostream>
 using namespace std;
 

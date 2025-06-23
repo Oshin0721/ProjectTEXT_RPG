@@ -22,6 +22,20 @@ Character* Character::getInstance(std::string name)
     return instance;
 }
 
+// 싱글톤 인스턴스 삭제
+void Character::destroyInstance()
+{
+    delete instance;
+    instance = nullptr;
+}
+
+// 공격력 증가 함수 구현
+void Character::increaseAttack(int amount)
+{
+    attack += amount;
+    std::cout << "[공격력 증가] +" << amount << " (현재 공격력: " << attack << ")" << std::endl;
+}
+
 // 캐릭터 상태 출력 함수
 void Character::displayStatus() const
 {
@@ -82,10 +96,10 @@ bool Character::isDead() const
 }
 
 // 아이템 획득 함수
-void Character::addItem(Item* item)
+void Character::addItem(std::unique_ptr<Item> item)
 {
-    inventory.push_back(item);
     std::cout << "[아이템 획득] " << item->getName() << " 획득!" << std::endl;
+    inventory.push_back(std::move(item));
 }
 
 // 아이템 사용 함수
@@ -94,7 +108,6 @@ void Character::useItem(int index)
     if (index >= 0 && index < inventory.size())
     {
         inventory[index]->use(this);
-        delete inventory[index]; // 메모리 해제
         inventory.erase(inventory.begin() + index); // 인벤토리에서 제거
     }
     else
@@ -109,7 +122,6 @@ void Character::removeItem(int index)
     if (index >= 0 && index < inventory.size())
     {
         std::cout << "[아이템 판매] " << inventory[index]->getName() << " 판매 완료." << std::endl;
-        delete inventory[index]; // 메모리 해제
         inventory.erase(inventory.begin() + index); // 인벤토리에서 제거
     }
     else
@@ -122,7 +134,6 @@ void Character::removeItem(int index)
 void Character::visitShop()
 {
     Shop shop; // Shop 클래스의 인스턴스 생성
-    shop.displayItems();
     shop.interact(this); // Character 객체를 참조로 넘겨 상점과 상호작용
 }
 
@@ -133,8 +144,9 @@ int Character::getLevel() const { return level; } // 현재 레벨 반환
 int Character::getGold() const { return gold; } // 현재 골드 반환
 int Character::getExperience() const { return experience; } // 현재 경험치 반환
 int Character::getInventorySize() const { return inventory.size(); } // 인벤토리 크기 반환 
+
 Item* Character::getItem(int index) // 인벤토리에서 아이템 반환
 {
     if (index < 0 || index >= inventory.size()) return nullptr; // 인덱스가 유효하지 않으면 nullptr 반환
-    return inventory[index];
+    return inventory[index].get();
 }

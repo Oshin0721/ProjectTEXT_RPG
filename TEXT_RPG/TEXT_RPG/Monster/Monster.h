@@ -7,13 +7,14 @@
 
 class Monster {                                     // Monster는 추상 클래스(모든 몬스터의 공통 기능)
 public:
+    virtual ~Monster() = default;                   // 다형성을 위한 가상 소멸자
+    
     virtual std::string getName() const = 0;        // 이름
     virtual int getHealth() const = 0;              // 체력
     virtual int getAttack() const = 0;              // 공격력
     virtual void takeDamage(int damage) = 0;        // 데미지 처리
-    virtual Item* dropItem() = 0;                   // 아이템 드랍 함수
-    virtual int dropGold() const = 0;               // 골드 드랍 함수
-    virtual ~Monster() = default;                   // 다형성을 위한 가상 소멸자
+    virtual std::unique_ptr<Item> dropItem() = 0;   // 아이템 드랍 함수
+    virtual int dropGold() const = 0;              // 골드 드랍 함수
 };
 
 // Goblin, Orc, Troll, BossMonster 클래스 선언부
@@ -26,7 +27,8 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    int dropGold() override;
+    std::unique_ptr<Item> dropItem() override;
+    int dropGold() const override;
 
 private:
     std::string name;
@@ -41,7 +43,8 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    int dropGold() override;
+    std::unique_ptr<Item> dropItem() override;
+    int dropGold() const override;
 
 private:
     std::string name;
@@ -56,7 +59,8 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    int dropGold() override;
+    std::unique_ptr<Item> dropItem() override;
+    int dropGold() const override;
 
 private:
     std::string name;
@@ -71,7 +75,8 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    int dropGold() override;
+    std::unique_ptr<Item> dropItem() override;
+    int dropGold() const override;
 
 private:
     std::string name;

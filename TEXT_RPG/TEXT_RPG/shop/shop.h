@@ -21,7 +21,13 @@ public:
     void displayItems() const;
     void buyItem(int index);
     void sellItem(int index);
+
     void interact(Character* player);
+
+    Shop(Character* player);
+    void interact();
+    // interact 함수 구현 부탁드립니다!
+
 };
 
 #endif // SHOP_H

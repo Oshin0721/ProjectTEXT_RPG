@@ -133,8 +133,21 @@ void Character::removeItem(int index)
 // 상점 방문 함수
 void Character::visitShop()
 {
-    Shop shop; // Shop 클래스의 인스턴스 생성
-    shop.interact(this); // Character 객체를 참조로 넘겨 상점과 상호작용
+    Shop shop(this); // Shop 클래스의 인스턴스 생성
+    shop.interact(); // Character 객체를 참조로 넘겨 상점과 상호작용
+}
+
+// displayInventory 함수 구현
+void Character::displayInventory() const {
+    if (inventory.empty()) {
+        std::cout << "인벤토리가 비어 있습니다." << std::endl;
+        return;
+    }
+
+    std::cout << "인벤토리 목록:" << std::endl;
+    for (size_t i = 0; i < inventory.size(); ++i) {
+        std::cout << i + 1 << ". " << inventory[i]->getName() << std::endl;
+    }
 }
 
 std::string Character::getName() const { return name; } // 캐릭터 이름 반환

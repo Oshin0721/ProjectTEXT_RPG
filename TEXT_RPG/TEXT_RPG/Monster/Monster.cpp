@@ -1,19 +1,19 @@
-ï»¿// Monsters.cpp
+// Monsters.cpp
 #include "Monster.h"
 #include "../item/HealthPotion.h"
 #include "../item/AttackBoost.h"
 #include <random>
-#include <cstdlib>      //rand(), srand() í•¨ìˆ˜ ì‚¬ìš©ì„ ìœ„í•œ í—¤ë”
-#include <ctime>        //time() í•¨ìˆ˜ ì‚¬ìš©ì„ ìœ„í•œ í—¤ë”
+#include <cstdlib>      //rand(), srand() ÇÔ¼ö »ç¿ëÀ» À§ÇÑ Çì´õ
+#include <ctime>        //time() ÇÔ¼ö »ç¿ëÀ» À§ÇÑ Çì´õ
 
 using namespace std;
 
-// ê³µí†µ ëœë¤ ìƒì„± í•¨ìˆ˜
-// ëª¬ìŠ¤í„° ìŠ¤í™ì„ ìºë¦­í„° ë ˆë²¨ì— ë¹„ë¡€í•´ì„œ ëœë¤í•˜ê²Œ ìƒì„±í•´ì•¼í•˜ê¸° ë•Œë¬¸ì— í•„ìš”
+// °øÅë ·£´ı »ı¼º ÇÔ¼ö
+// ¸ó½ºÅÍ ½ºÆåÀ» Ä³¸¯ÅÍ ·¹º§¿¡ ºñ·ÊÇØ¼­ ·£´ıÇÏ°Ô »ı¼ºÇØ¾ßÇÏ±â ¶§¹®¿¡ ÇÊ¿ä
 int getRandomInRange(int min, int max) {
     static random_device rd;
-    static mt19937 gen(rd());                          // ë‚œìˆ˜ ìƒì„±ê¸°
-    uniform_int_distribution<> dist(min, max);         // ê· ë“± ë¶„í¬
+    static mt19937 gen(rd());                          // ³­¼ö »ı¼º±â
+    uniform_int_distribution<> dist(min, max);         // ±Õµî ºĞÆ÷
     return dist(gen);
 }
 
@@ -33,26 +33,26 @@ void Goblin::takeDamage(int damage) {
     if (health < 0) health = 0;
 }
 
-//ì•„ì´í…œ ë“œë: 50% í™•ë¥ ì€ íšŒë³µí¬ì…˜, 25í¼ì„¼íŠ¸ í™•ë¥ ì€ ê³µê²©ë ¥ ì¦ê°€, ë‚˜ë¨¸ì§€ëŠ” ì—†ìŒ
+//¾ÆÀÌÅÛ µå¶ø: 50% È®·üÀº È¸º¹Æ÷¼Ç, 25ÆÛ¼¾Æ® È®·üÀº °ø°İ·Â Áõ°¡, ³ª¸ÓÁö´Â ¾øÀ½
 Item* Goblin::dropItem()
 {
     int roll = rand() % 100;
 
     if (roll < 50)
     {
-        return new HealthPotion();      //50% í™•ë¥  íšŒë³µí¬ì…˜ ë“œë
+        return new HealthPotion();      //50% È®·ü È¸º¹Æ÷¼Ç µå¶ø
     }
     else if (roll < 75)
     {
-        return new AttackBoost();      //25% í™•ë¥  ê³µê²©ë ¥ ì¦ê°€ ë“œë
+        return new AttackBoost();      //25% È®·ü °ø°İ·Â Áõ°¡ µå¶ø
     }
     else
     {
-        return nullptr;                 //ë‚˜ë¨¸ì§€ 25% ì•„ì´í…œ ì—†ìŒ
+        return nullptr;                 //³ª¸ÓÁö 25% ¾ÆÀÌÅÛ ¾øÀ½
     }
 }
 
-// ê³¨ë“œ ë“œë: ê³ ë¸”ë¦°ì€ 10~30ê³¨ë“œ ë“œë
+// °ñµå µå¶ø: °íºí¸°Àº 10~30°ñµå µå¶ø
 int Goblin::dropGold() {
     return getRandomInRange(5, 25);
 }
@@ -73,28 +73,28 @@ void Orc::takeDamage(int damage) {
     if (health < 0) health = 0;
 }
 
-//ì•„ì´í…œ ë“œë: 40% íšŒë³µ í¬ì…˜ 40% ê³µê²©ë ¥ ì¦ê°€ 20% ì—†ìŒ
+//¾ÆÀÌÅÛ µå¶ø: 40% È¸º¹ Æ÷¼Ç 40% °ø°İ·Â Áõ°¡ 20% ¾øÀ½
 Item* Orc::dropItem()
 {
     int roll = rand() % 100;
 
     if (roll < 40)
     {
-        return new HealthPotion();    // 40% í™•ë¥ 
+        return new HealthPotion();    // 40% È®·ü
     }
     else if (roll < 80)
     {
-        return new AttackBoost();     // 40% í™•ë¥ 
+        return new AttackBoost();     // 40% È®·ü
     }
     else
     {
-        return nullptr;               // 20% í™•ë¥  ì—†ìŒ
+        return nullptr;               // 20% È®·ü ¾øÀ½
     }
 }
 
 int Orc::dropGold()
 {
-    return getRandomInRange(10, 40);  // OrcëŠ” 10~40 ê³¨ë“œ ë“œë
+    return getRandomInRange(10, 40);  // Orc´Â 10~40 °ñµå µå¶ø
 }
 
 // Troll
@@ -113,7 +113,7 @@ void Troll::takeDamage(int damage) {
     if (health < 0) health = 0;
 }
 
-//ì•„ì´í…œ ë“œë: 30% íšŒë³µ í¬ì…˜ 40% ê³µê²©ë ¥ ì¦ê°€ 20% ì—†ìŒ
+//¾ÆÀÌÅÛ µå¶ø: 30% È¸º¹ Æ÷¼Ç 40% °ø°İ·Â Áõ°¡ 20% ¾øÀ½
 Item* Troll::dropItem()
 {
     int roll = rand() % 100;
@@ -134,7 +134,7 @@ Item* Troll::dropItem()
 
 int Troll::dropGold()
 {
-    return getRandomInRange(20, 50);    //ê³¨ë“œ ë²”ìœ„ 20~50ê³¨ë“œ
+    return getRandomInRange(20, 50);    //°ñµå ¹üÀ§ 20~50°ñµå
 }
 
 // BossMonster
@@ -153,7 +153,7 @@ void BossMonster::takeDamage(int damage) {
     if (health < 0) health = 0;
 }
 
-//ì•„ì´í…œ ë“œë: 60%íšŒë³µ ê·¸ì™¸ ê³µê²©ë ¥ ì¦ê°€
+//¾ÆÀÌÅÛ µå¶ø: 60%È¸º¹ ±×¿Ü °ø°İ·Â Áõ°¡
 Item* BossMonster::dropItem()
 {
     int roll = rand() % 100;
@@ -164,11 +164,11 @@ Item* BossMonster::dropItem()
     }
     else
     {
-        return new AttackBoost();  // BossëŠ” ë¬´ì¡°ê±´ ì•„ì´í…œ ë“œë
+        return new AttackBoost();  // Boss´Â ¹«Á¶°Ç ¾ÆÀÌÅÛ µå¶ø
     }
 }
 
 int BossMonster::dropGold()
 {
-    return getRandomInRange(100, 200);  //100~200ê³¨ë“œì‚¬ì´ ë“œë
+    return getRandomInRange(100, 200);  //100~200°ñµå»çÀÌ µå¶ø
 }

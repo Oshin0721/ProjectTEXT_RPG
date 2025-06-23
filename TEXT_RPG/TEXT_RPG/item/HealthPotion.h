@@ -1,4 +1,4 @@
-ï»¿#ifndef ITEM_HEALTHPOTION_H
+#ifndef ITEM_HEALTHPOTION_H
 #define ITEM_HEALTHPOTION_H
 
 #include "Item.h"
@@ -6,17 +6,17 @@
 class HealthPotion : public Item
 {
 private:
-	std::string name;       //ì•„ì´í…œ ì´ë¦„
-	int healthRestore;      //íšŒë³µí•  ìˆ˜ì¹˜
-	int buyPrice;           // êµ¬ë§¤ ê°€ê²©
-	int sellPrice;          // íŒë§¤ ê°€ê²©
+	std::string name;       //¾ÆÀÌÅÛ ÀÌ¸§
+	int healthRestore;      //È¸º¹ÇÒ ¼öÄ¡
+	int buyPrice;           // ±¸¸Å °¡°İ
+	int sellPrice;          // ÆÇ¸Å °¡°İ
 
 public:
-	HealthPotion();         //ìƒì„±ì
-	std::string getName() const override;  //ì´ë¦„ ë°˜í™˜
+	HealthPotion();         //»ı¼ºÀÚ
+	std::string getName() const override;  //ÀÌ¸§ ¹İÈ¯
 	void use(Character* character) override;
-	int getBuyPrice() const override;                // êµ¬ë§¤ ê°€ê²© ë°˜í™˜
-	int getSellPrice() const override;               // íŒë§¤ ê°€ê²© ë°˜í™˜
+	int getBuyPrice() const override;                // ±¸¸Å °¡°İ ¹İÈ¯
+	int getSellPrice() const override;               // ÆÇ¸Å °¡°İ ¹İÈ¯
 };
 
 #endif

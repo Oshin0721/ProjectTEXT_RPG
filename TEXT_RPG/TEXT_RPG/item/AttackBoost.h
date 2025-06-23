@@ -1,4 +1,4 @@
-ï»¿#ifndef ITEM_ATTACKBOOST_H
+#ifndef ITEM_ATTACKBOOST_H
 #define ITEM_ATTACKBOOST_H
 
 #include "Item.h"
@@ -6,17 +6,17 @@
 class AttackBoost : public Item
 {
 private:
-	std::string name;     //ì•„ì´í…œ ì´ë¦„
-	int attackIncrease;    //ê³µê²©ë ¥ ì¦ê°€ ìˆ˜ì¹˜
-	int buyPrice;        // êµ¬ë§¤ ê°€ê²©
-	int sellPrice;       // íŒë§¤ ê°€ê²©
+	std::string name;     //¾ÆÀÌÅÛ ÀÌ¸§
+	int attackIncrease;    //°ø°İ·Â Áõ°¡ ¼öÄ¡
+	int buyPrice;        // ±¸¸Å °¡°İ
+	int sellPrice;       // ÆÇ¸Å °¡°İ
 
 public:
-	AttackBoost();                           //ìƒì„±ì
-	std::string getName() const override;    //ì´ë¦„ ë°˜í™˜
-	void use(Character* character) override; //íš¨ê³¼ ì ìš©
-	int getBuyPrice() const override;                // êµ¬ë§¤ ê°€ê²© ë°˜í™˜
-	int getSellPrice() const override;               // íŒë§¤ ê°€ê²© ë°˜í™˜
+	AttackBoost();                           //»ı¼ºÀÚ
+	std::string getName() const override;    //ÀÌ¸§ ¹İÈ¯
+	void use(Character* character) override; //È¿°ú Àû¿ë
+	int getBuyPrice() const override;                // ±¸¸Å °¡°İ ¹İÈ¯
+	int getSellPrice() const override;               // ÆÇ¸Å °¡°İ ¹İÈ¯
 };
 
 #endif

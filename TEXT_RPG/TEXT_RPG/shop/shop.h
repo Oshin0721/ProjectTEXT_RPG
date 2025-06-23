@@ -20,7 +20,7 @@ public:
     void buyItem(int index);
     void sellItem(int index);
     Shop(Character* player);
-    // »óÁ¡°ú »óÈ£ÀÛ¿ë ÇÏ´Â ÇÔ¼ö interact() ±¸Çö ºÎÅ¹µå¸³´Ï´Ù!
+    // interact í•¨ìˆ˜ êµ¬í˜„ ë¶€íƒë“œë¦½ë‹ˆë‹¤!
 };
 
 #endif // SHOP_H

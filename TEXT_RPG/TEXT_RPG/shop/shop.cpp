@@ -44,13 +44,9 @@ void Shop::interact() {
         sellItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1
     }
     else if (choice == 3) {
-        cout << "상점을 종료합니다." << endl;
+        shopClose();
     }
-    else if (choice == 44) {
-        cout << "관리자 코드입니다" << endl;
-
-    }
-
+   
 }
 
 void Shop::shopClose() {

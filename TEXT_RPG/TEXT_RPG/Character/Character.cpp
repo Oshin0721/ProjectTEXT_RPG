@@ -157,7 +157,7 @@ int Character::getLevel() const { return level; } // 현재 레벨 반환
 int Character::getGold() const { return gold; } // 현재 골드 반환
 int Character::getExperience() const { return experience; } // 현재 경험치 반환
 int Character::getInventorySize() const { return inventory.size(); } // 인벤토리 크기 반환
-int Character::getMaxHealth() const { return maxHealth; }   //맥스헬스 게터 생성
+int Character::getMaxHealth() const { return maxHealth; } // 최대 체력 반환
 
 Item* Character::getItem(int index) // 인벤토리에서 아이템 반환
 {

@@ -51,7 +51,7 @@ public:
     int getGold() const;
     int getExperience() const;
     int getInventorySize() const;
-    int getMaxHealth() const;  //맥스 헬스 게터 생성
+    int getMaxHealth() const;
     Item* getItem(int index);
 };
 

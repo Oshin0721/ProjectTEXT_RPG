@@ -140,7 +140,7 @@ int Troll::dropGold() const
 
 // BossMonster
 BossMonster::BossMonster(int level) {
-    name = "BossMonster";
+    name = "Dragon";
     health = getRandomInRange(level * 30, level * 40);
     attack = getRandomInRange(level * 10, level * 15);
 }

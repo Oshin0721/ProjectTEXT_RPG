@@ -130,7 +130,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
-    <ClCompile Include="item\Attacckboost.cpp" />
+    <ClCompile Include="item\AttackBoost.cpp" />
     <ClCompile Include="item\HealthPotion.cpp" />
     <ClCompile Include="Monster\Monster.cpp" />
     <ClCompile Include="shop\shop.cpp" />

@@ -12,6 +12,7 @@ Shop::Shop(Character* player) : player(player) {
 
   
 }
+
 void Shop::interact() {
     //interact() 함수로 이동
     cout << "상점이 열렸습니다!" << endl;

@@ -18,9 +18,6 @@
     <ClCompile Include="TEXT_RPG.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="item\Attacckboost.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="item\HealthPotion.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -33,7 +30,10 @@
     <ClCompile Include="Monster\Monster.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="gamemanager.cpp">
+    <ClCompile Include="GameManager\gamemanager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="item\AttackBoost.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,7 +56,7 @@
     <ClInclude Include="Monster\Monster.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="gamemanager.h">
+    <ClInclude Include="GameManager\gamemanager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

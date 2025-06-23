@@ -1,5 +1,5 @@
 #include "AttackBoost.h"
-#include ""//아직 캐릭터 클래스가 없음
+#include "../Character/Character.h"
 
 #include <iostream>
 

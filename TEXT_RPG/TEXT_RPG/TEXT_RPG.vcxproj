@@ -132,9 +132,9 @@
     </ClCompile>
     <ClCompile Include="item\AttackBoost.cpp" />
     <ClCompile Include="item\HealthPotion.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster\Monster.cpp" />
     <ClCompile Include="shop\shop.cpp" />
-    <ClCompile Include="TEXT_RPG.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\Character.h" />

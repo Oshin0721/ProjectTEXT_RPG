@@ -9,10 +9,11 @@
 #include "../Monster/Monster.h"
 #include "../shop/shop.h"
 
+using namespace std;
 
 Monster* GameManager::generateMonster(int level)
 {
-	srand(0); //랜덤 값 초기화
+	srand(time(0)); //랜덤 값 초기화
 	int random = rand() % 3;  //랜덤한 수를 3으로 모듈러해서 1,2,3만 생성
 
 	if (random == 0)
@@ -37,7 +38,7 @@ void GameManager::battle(Character* player)
 	Monster* monster = generateMonster(player -> getLevel());  //몬스터 생성
 	cout << monster->getName() << " 등장" << endl;  //몬스터 생성 알림
 	
-	while (monster->getHealth() == 0 || player->getHealth() == 0) //전투 시스템
+	while (monster->getHealth() > 0 && player->getHealth() > 0) //전투 시스템
 	{
 		//공격 주고 받기
 		monster->takeDamage(player->getAttack());  //플레이어가 공격할때
@@ -49,7 +50,7 @@ void GameManager::battle(Character* player)
 		}
 		else if (player->getHealth() <= player->maxHealth*0.75)
 		{
-			Attackboost->use(Character* player);
+			AttackBoost->use(Character* player);
 		};
 
 		if (monster->getHealth() == 0)  //승리 선언
@@ -82,53 +83,8 @@ void GameManager::battle(Character* player)
 		
 	}
 }
-void GameManager::displayInventory(Character* player)
+
+void GameManager::showInventoryMenu(Character* player)
 {
-	for (Item* item : player->getInventory()) //겟 인벤토리 없음 사이즈만 있음
-	{
-		cout << item ->getName() << endl;
-	}
-}
-void GameManager::visitShop(Character* player)
-{
-	while (true)
-	{
-		cout << "상점에 왔습니다." << endl;
-		cout << "보유 골드:" << player->getGold() << endl;
-		cout << "1. 회복 물약 구매" << endl;
-		cout << "2. 회복 물약 판매" << endl;
-		cout << "3. 공격력 강화 구매" << endl;
-		cout << "4. 공격력 강화 판매" << endl;
-		cout << "5. 상점 나가기" << endl;
-		int choice = 0;
-		cin >> choice;
-		if (choice == 1)
-		{
-			player->setgold (player->getGold() - HealthPotion->getBuyPrice(20)); //셋 골드 없음
-			cout << "구매 완료. 남은 골드 " << gold << endl;
-			player->addItem(new HealthPotion);
-		}
-		else if (choice == 2)
-		{
-			player->setgold (player->getGold() + HealthPotion->getBuyPrice(20)); //셋 골드 없음
-			cout << "판매 완료. 남은 골드 " << gold << endl;
-			player->removeItem(HealthPotion);
-		}
-		else if (choice == 3)
-		{
-			player->setgold (player->getGold() - AttackBoost->getBuyPrice(30)); //셋 골드 없음
-			cout << "구매 완료. 남은 골드 " << gold << endl;
-			player->addItem(new AttackBoost);
-		}
-		else if (choice == 4)
-		{
-			player->setgold (player->getGold() + AttackBoost->getBuyPrice(30)); //셋 골드 없음
-			cout << "판매 완료. 남은 골드 " << gold << endl;
-			player->removeItem()Item(AttackBoost);
-		}
-		else if (choice == 5)
-		{
-			return false;
-		}
-	}
+	player->displayInventory();
 }

@@ -1,6 +1,8 @@
-﻿#ifndef "MONSTER_H" 
-#define "MONSTER_H"
+﻿#ifndef MONSTER_H
+#define MONSTER_H
 
+#include <string>
+#include <memory>
 #include "../item/Item.h"
 
 class Monster {                                     // Monster는 추상 클래스(모든 몬스터의 공통 기능)

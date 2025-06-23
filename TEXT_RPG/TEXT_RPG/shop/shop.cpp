@@ -47,6 +47,10 @@ Shop::Shop(Character* player) : player(player) {
 	// 초기화 작업이 필요하다면 여기에 작성
 }
 
+void Shop::shopClose() {
+    cout << "상점을 종료합니다." << endl;
+}
+
 void Shop::displayItems() const {
 	cout << "상점에 있는 아이템 목록:" << endl;
 	if (availableItems.empty()) {

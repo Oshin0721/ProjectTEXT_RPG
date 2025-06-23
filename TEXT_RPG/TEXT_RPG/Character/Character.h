@@ -1,13 +1,13 @@
-#ifndef CHARACTER_H
+ï»¿#ifndef CHARACTER_H
 #define CHARACTER_H
 
 #include <string>
 #include <vector>
-#include "../Item/Item.h" // »ó´ë °æ·Î·Î ¼öÁ¤ÇÏ¿© Item.h ÆÄÀÏÀ» Ã£À» ¼ö ÀÖµµ·Ï ¼³Á¤
+#include "../Item/Item.h" // ìƒëŒ€ ê²½ë¡œë¡œ ìˆ˜ì •í•˜ì—¬ Item.h íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ìˆë„ë¡ ì„¤ì •
 
 class Character {
 private:
-    static Character* instance; // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º
+    static Character* instance; // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤
     std::string name;
     int level;
     int health;
@@ -15,12 +15,12 @@ private:
     int attack;
     int experience;
     int gold;
-    std::vector<Item*> inventory; // ¾ÆÀÌÅÛ ÀÎº¥Åä¸®
+    std::vector<Item*> inventory; // ì•„ì´í…œ ì¸ë²¤í† ë¦¬
 
-    Character(std::string name); // private »ı¼ºÀÚ, ÀÌ¸§ ¹Ş¾Æ¼­ ÃÊ±â°ª ¼¼ÆÃ
+    Character(std::string name); // private ìƒì„±ì, ì´ë¦„ ë°›ì•„ì„œ ì´ˆê¸°ê°’ ì„¸íŒ…
 
 public:
-    static Character* getInstance(std::string name = ""); // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º ¹İÈ¯, ÀÌ¸§ÀÌ ¾øÀ¸¸é »ı¼º ¾ÈÇÔ
+    static Character* getInstance(std::string name = ""); // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ë°˜í™˜, ì´ë¦„ì´ ì—†ìœ¼ë©´ ìƒì„± ì•ˆí•¨
 
     void displayStatus() const;
     void levelUp();
@@ -29,12 +29,12 @@ public:
     void takeDamage(int damage);
     bool isDead() const;
 
-    void restoreHealth(int amount);       // Ã¼·Â È¸º¹
-    void increaseAttack(int amount);      // °ø°İ·Â Áõ°¡
+    void restoreHealth(int amount);       // ì²´ë ¥ íšŒë³µ
+    void increaseAttack(int amount);      // ê³µê²©ë ¥ ì¦ê°€
 
     void addItem(Item* item);
     void useItem(int index);
-    void removeItem(int index); // Ãß°¡ : ÀÎº¥Åä¸®¿¡¼­ ¾ÆÀÌÅÛ Á¦°Å
+    void removeItem(int index); // ì¶”ê°€ : ì¸ë²¤í† ë¦¬ì—ì„œ ì•„ì´í…œ ì œê±°
     void visitShop();
 
     std::string getName() const;

@@ -1,4 +1,4 @@
-#include "shop.h"
+ï»¿#include "shop.h"
 #include <iostream>
 using namespace std;
 
@@ -6,98 +6,98 @@ using namespace std;
 
 Shop::Shop(Character* player) : player(player) {
     
-    availableItems.push_back(make_unique<HealthPotion>("±âº» Ã¼·Â Æ÷¼Ç", 50)); // ÀÌ¸§, °¡°İ, 
-    availableItems.push_back(make_unique<AttackBoost>("°ø°İ·Â Áõ°¡ ¹°¾à", 70)); // ÀÌ¸§, °¡°İ, 
+    availableItems.push_back(make_unique<HealthPotion>("ê¸°ë³¸ ì²´ë ¥ í¬ì…˜", 50)); // ì´ë¦„, ê°€ê²©, 
+    availableItems.push_back(make_unique<AttackBoost>("ê³µê²©ë ¥ ì¦ê°€ ë¬¼ì•½", 70)); // ì´ë¦„, ê°€ê²©, 
 
 
-	cout << "»óÁ¡ÀÌ ¿­·È½À´Ï´Ù!" << endl;
-	cout << "¾ÆÀÌÅÛÀ» ±¸¸ÅÇÏ°Å³ª ÆÇ¸ÅÇÒ ¼ö ÀÖ½À´Ï´Ù." << endl;
-	cout << "»óÁ¡¿¡¼­ ¿øÇÏ´Â ÀÛ¾÷À» ¼±ÅÃÇÏ¼¼¿ä." << endl;
-	cout << "1. ¾ÆÀÌÅÛ ±¸¸Å" << endl;
-	cout << "2. ¾ÆÀÌÅÛ ÆÇ¸Å" << endl;
-	cout << "3. »óÁ¡ Á¾·á" << endl;
+	cout << "ìƒì ì´ ì—´ë ¸ìŠµë‹ˆë‹¤!" << endl;
+	cout << "ì•„ì´í…œì„ êµ¬ë§¤í•˜ê±°ë‚˜ íŒë§¤í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤." << endl;
+	cout << "ìƒì ì—ì„œ ì›í•˜ëŠ” ì‘ì—…ì„ ì„ íƒí•˜ì„¸ìš”." << endl;
+	cout << "1. ì•„ì´í…œ êµ¬ë§¤" << endl;
+	cout << "2. ì•„ì´í…œ íŒë§¤" << endl;
+	cout << "3. ìƒì  ì¢…ë£Œ" << endl;
 
 	int choice;
 	cin >> choice;
     if(choice == 1) {
         displayItems();
         int itemIndex;
-        cout << "±¸¸ÅÇÒ ¾ÆÀÌÅÛÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ";
+        cout << "êµ¬ë§¤í•  ì•„ì´í…œì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
         cin >> itemIndex;
-        buyItem(itemIndex - 1); // ÀÎµ¦½º´Â 0ºÎÅÍ ½ÃÀÛÇÏ¹Ç·Î -1
+        buyItem(itemIndex - 1); // ì¸ë±ìŠ¤ëŠ” 0ë¶€í„° ì‹œì‘í•˜ë¯€ë¡œ -1
     } else if (choice == 2) {
         if (player->getInventorySize() == 0) {
-            cout << "ÀÎº¥Åä¸®¿¡ ¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù." << endl;
+            cout << "ì¸ë²¤í† ë¦¬ì— ì•„ì´í…œì´ ì—†ìŠµë‹ˆë‹¤." << endl;
             return;
         }
         player->displayInventory();
         int itemIndex;
-        cout << "ÆÇ¸ÅÇÒ ¾ÆÀÌÅÛÀÇ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ";
+        cout << "íŒë§¤í•  ì•„ì´í…œì˜ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
         cin >> itemIndex;
-        sellItem(itemIndex - 1); // ÀÎµ¦½º´Â 0ºÎÅÍ ½ÃÀÛÇÏ¹Ç·Î -1
+        sellItem(itemIndex - 1); // ì¸ë±ìŠ¤ëŠ” 0ë¶€í„° ì‹œì‘í•˜ë¯€ë¡œ -1
     } else if (choice == 3) {
-        cout << "»óÁ¡À» Á¾·áÇÕ´Ï´Ù." << endl;
+        cout << "ìƒì ì„ ì¢…ë£Œí•©ë‹ˆë‹¤." << endl;
     } else if (choice == 44){
-        cout << "°ü¸®ÀÚ ÄÚµåÀÔ´Ï´Ù" << endl;
+        cout << "ê´€ë¦¬ì ì½”ë“œì…ë‹ˆë‹¤" << endl;
 
 	}   
 
 
 	
-	// ÃÊ±âÈ­ ÀÛ¾÷ÀÌ ÇÊ¿äÇÏ´Ù¸é ¿©±â¿¡ ÀÛ¼º
+	// ì´ˆê¸°í™” ì‘ì—…ì´ í•„ìš”í•˜ë‹¤ë©´ ì—¬ê¸°ì— ì‘ì„±
 }
 
 void Shop::displayItems() const {
-	cout << "»óÁ¡¿¡ ÀÖ´Â ¾ÆÀÌÅÛ ¸ñ·Ï:" << endl;
+	cout << "ìƒì ì— ìˆëŠ” ì•„ì´í…œ ëª©ë¡:" << endl;
 	if (availableItems.empty()) {
-		cout << "¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù." << endl;
+		cout << "ì•„ì´í…œì´ ì—†ìŠµë‹ˆë‹¤." << endl;
         cout << "----------------------" << endl;
 		return;
 
 	}
 	for (int i = 0; i < availableItems.size(); ++i) {
-		cout << i + 1 << ". " << availableItems[i]->getName() << " - °¡°İ: " << availableItems[i]->getBuyPrice() << endl;
+		cout << i + 1 << ". " << availableItems[i]->getName() << " - ê°€ê²©: " << availableItems[i]->getBuyPrice() << endl;
 	}
 }
 void Shop::buyItem(int index) 
 {  
     if (index < 0 || index >= availableItems.size())
     {  
-        cout << "Àß¸øµÈ ¾ÆÀÌÅÛ ¼±ÅÃÀÔ´Ï´Ù." << endl;  
+        cout << "ì˜ëª»ëœ ì•„ì´í…œ ì„ íƒì…ë‹ˆë‹¤." << endl;  
         return;  
     }  
     auto& item = availableItems[index];  
     if (player->getGold() < item->getBuyPrice())
     {  
-        cout << "°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù." << endl;  
+        cout << "ê³¨ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤." << endl;  
         return;  
     }  
 	
     
     player->addItem(item.get());
     player->addGold(-item->getBuyPrice());
-    cout << item->getName() << "À»(¸¦) ±¸¸ÅÇß½À´Ï´Ù!\n";
+    cout << item->getName() << "ì„(ë¥¼) êµ¬ë§¤í–ˆìŠµë‹ˆë‹¤!\n";
 }
 void Shop::sellItem(int index)
 {    
     if (index < 0 || index >= player->getInventorySize())
     { 
-        cout << "Àß¸øµÈ ¾ÆÀÌÅÛ ¼±ÅÃÀÔ´Ï´Ù." << endl;
+        cout << "ì˜ëª»ëœ ì•„ì´í…œ ì„ íƒì…ë‹ˆë‹¤." << endl;
         return;
     }
     if (player->getInventorySize() == 0) {
-        cout << "ÀÎº¥Åä¸®¿¡ ¾ÆÀÌÅÛÀÌ ¾ø½À´Ï´Ù." << endl;
+        cout << "ì¸ë²¤í† ë¦¬ì— ì•„ì´í…œì´ ì—†ìŠµë‹ˆë‹¤." << endl;
         return;
     }
 
     
-	Item* item = player->getItem(index); //¾ÆÀÌÅÛ ÀÎº¥Åä¸®¿¡¼­ °¡Á®¿À±â
-    string itemName = item->getName(); // ¾ÈÀüÇÏ°Ô ÀÌ¸§¸¸ º¹»ç
+	Item* item = player->getItem(index); //ì•„ì´í…œ ì¸ë²¤í† ë¦¬ì—ì„œ ê°€ì ¸ì˜¤ê¸°
+    string itemName = item->getName(); // ì•ˆì „í•˜ê²Œ ì´ë¦„ë§Œ ë³µì‚¬
     
-	player->addGold(player->getGold() + item->getSellPrice());//¾ÆÀÌÅÛ ÆÇ¸Å °¡°İÀ» ÇÃ·¹ÀÌ¾îÀÇ °ñµå¿¡ Ãß°¡
+	player->addGold(player->getGold() + item->getSellPrice());//ì•„ì´í…œ íŒë§¤ ê°€ê²©ì„ í”Œë ˆì´ì–´ì˜ ê³¨ë“œì— ì¶”ê°€
 
 
-	player->removeItem(index);//¾ÆÀÌÅÛÀ» ÀÎº¥Åä¸®¿¡¼­ Á¦°Å Ãß°¡ ÇØÁÖ½Ã¸é °¨»çÇÕ´Ï´Ù.
+	player->removeItem(index);//ì•„ì´í…œì„ ì¸ë²¤í† ë¦¬ì—ì„œ ì œê±° ì¶”ê°€ í•´ì£¼ì‹œë©´ ê°ì‚¬í•©ë‹ˆë‹¤.
 
-    cout << itemName << "À»(¸¦) ÆÇ¸ÅÇß½À´Ï´Ù!" << endl;
+    cout << itemName << "ì„(ë¥¼) íŒë§¤í–ˆìŠµë‹ˆë‹¤!" << endl;
 }

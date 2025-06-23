@@ -1,4 +1,4 @@
-#include "HealthPotion.h"
+ï»¿#include "HealthPotion.h"
 #include "../Character/Character.h"
 
 #include <iostream>
@@ -6,7 +6,7 @@
 using namespace std;
 
 HealthPotion::HealthPotion()
-	: name("È¸º¹ ¹°¾à"), healthRestore(50) {} //ÃÊ±â°ª //Ç¥¼Ç->¹°¾à ¼öÁ¤
+	: name("íšŒë³µ ë¬¼ì•½"), healthRestore(50) {} //ì´ˆê¸°ê°’ //í‘œì…˜->ë¬¼ì•½ ìˆ˜ì •
 
 string HealthPotion::getName() const
 {
@@ -15,8 +15,8 @@ string HealthPotion::getName() const
 
 void HealthPotion::use(Character* character)
 {
-	Character->restoreHealth(healthRestore); // Ä³¸¯ÅÍ Ã¼·Â Áõ°¡ÀÎµ¥ ¾ÆÁ÷ ¾øÀ½
-	cout << name << "»ç¿ë!" << healthRestore << "HP È¸º¹" << endl;
+	Character->restoreHealth(healthRestore); // ìºë¦­í„° ì²´ë ¥ ì¦ê°€ì¸ë° ì•„ì§ ì—†ìŒ
+	cout << name << "ì‚¬ìš©!" << healthRestore << "HP íšŒë³µ" << endl;
 }
 int HealthPotion::getBuyPrice() const
 {

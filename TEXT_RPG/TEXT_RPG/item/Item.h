@@ -1,18 +1,18 @@
-#ifndef ITEM_H
+ï»¿#ifndef ITEM_H
 #define ITEM_H
 
 #include <string>
 
-class Character; //Á¤ÀÇÇÒ Character Å¬·¡½º ÂüÁ¶¸¸ ÇÏ±âÀ§ÇÑ ¼±¾ğ
+class Character; //ì •ì˜í•  Character í´ë˜ìŠ¤ ì°¸ì¡°ë§Œ í•˜ê¸°ìœ„í•œ ì„ ì–¸
 
-class Item //¸ğµç ¾ÆÀÌÅÛ °øÅë ÀÎÅÍÆäÀÌ½º Á¤ÀÇ(Ãß»óÅ¬·¡½º)
+class Item //ëª¨ë“  ì•„ì´í…œ ê³µí†µ ì¸í„°í˜ì´ìŠ¤ ì •ì˜(ì¶”ìƒí´ë˜ìŠ¤)
 {
 public:
-	virtual ~Item() {} //¼Ò¸êÀÚ(¸Ş¸ğ¸® ´©¼ö ¹æÁö)
-	virtual std::string getName() const = 0; //¾ÆÀÌÅÛ ÀÌ¸§À» ¹İÈ¯ÇÏ´Â ¼ø¼ö °¡»ó ÇÔ¼ö
-	virtual void use(Character* character) = 0; //Ä³¸¯ÅÍ¿¡°Ô ¾ÆÀÌÅÛÀ» »ç¿ëÇÒ ¶§ È£ÃâµÇ´Â ÇÔ¼ö
-	virtual int getBuyPrice() const = 0;   // ±¸¸Å °¡°İÀ» Á¤¼ö·Î ¹İÈ¯ (Shop µî¿¡¼­ »ç¿ë)
-	virtual int getSellPrice() const = 0;  // ÆÇ¸Å °¡°İÀ» Á¤¼ö·Î ¹İÈ¯ (ÆÇ¸Å ½Ã »ç¿ë)
+	virtual ~Item() {} //ì†Œë©¸ì(ë©”ëª¨ë¦¬ ëˆ„ìˆ˜ ë°©ì§€)
+	virtual std::string getName() const = 0; //ì•„ì´í…œ ì´ë¦„ì„ ë°˜í™˜í•˜ëŠ” ìˆœìˆ˜ ê°€ìƒ í•¨ìˆ˜
+	virtual void use(Character* character) = 0; //ìºë¦­í„°ì—ê²Œ ì•„ì´í…œì„ ì‚¬ìš©í•  ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
+	virtual int getBuyPrice() const = 0;   // êµ¬ë§¤ ê°€ê²©ì„ ì •ìˆ˜ë¡œ ë°˜í™˜ (Shop ë“±ì—ì„œ ì‚¬ìš©)
+	virtual int getSellPrice() const = 0;  // íŒë§¤ ê°€ê²©ì„ ì •ìˆ˜ë¡œ ë°˜í™˜ (íŒë§¤ ì‹œ ì‚¬ìš©)
 };
 
 

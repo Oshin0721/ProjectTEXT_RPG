@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <cstdlib> // rand(), srand()
 #include "GameManager.h"
 #include "../Character/Character.h"
@@ -9,8 +9,8 @@
 
 Monster* GameManager::generateMonster(int level)
 {
-	srand(0); //·£´ı °ª ÃÊ±âÈ­
-	int random = rand() % 3;  //·£´ıÇÑ ¼ö¸¦ 3À¸·Î ¸ğµâ·¯ÇØ¼­ 1,2,3¸¸ »ı¼º
+	srand(0); //ëœë¤ ê°’ ì´ˆê¸°í™”
+	int random = rand() % 3;  //ëœë¤í•œ ìˆ˜ë¥¼ 3ìœ¼ë¡œ ëª¨ë“ˆëŸ¬í•´ì„œ 1,2,3ë§Œ ìƒì„±
 
 	if (random == 0)
 	{
@@ -31,16 +31,16 @@ Monster* GameManager::generateMonster(int level)
 }
 void GameManager::battle(Character* player)
 {
-	Monster* monster = generateMonster(player -> getLevel());  //¸ó½ºÅÍ »ı¼º
-	cout << monster->getName() << " µîÀå" << endl;  //¸ó½ºÅÍ »ı¼º ¾Ë¸²
+	Monster* monster = generateMonster(player -> getLevel());  //ëª¬ìŠ¤í„° ìƒì„±
+	cout << monster->getName() << " ë“±ì¥" << endl;  //ëª¬ìŠ¤í„° ìƒì„± ì•Œë¦¼
 	
-	while (monster->getHealth() == 0 || player->getHealth() == 0) //ÀüÅõ ½Ã½ºÅÛ
+	while (monster->getHealth() == 0 || player->getHealth() == 0) //ì „íˆ¬ ì‹œìŠ¤í…œ
 	{
-		//°ø°İ ÁÖ°í ¹Ş±â
-		monster->takeDamage(player->getAttack());  //ÇÃ·¹ÀÌ¾î°¡ °ø°İÇÒ¶§
-		cout << player->getName << "ÀÌ(°¡)" << monster << "À»(¸¦) °ø°İÇß½À´Ï´Ù. Ã¼·Â: " << player->getHealth << endl;
+		//ê³µê²© ì£¼ê³  ë°›ê¸°
+		monster->takeDamage(player->getAttack());  //í”Œë ˆì´ì–´ê°€ ê³µê²©í• ë•Œ
+		cout << player->getName << "ì´(ê°€)" << monster << "ì„(ë¥¼) ê³µê²©í–ˆìŠµë‹ˆë‹¤. ì²´ë ¥: " << player->getHealth << endl;
 
-		if (player->getHealth() <= player->maxHealth*0.5)  //¾ÆÀÌÅÛ »ç¿ë ½Ã½ºÅÛ //¸Æ½ºÇï½º°¡ ÇÁ¶óÀÌºøÀÌ¶ó Á¢±Ù ¾ÈµÊ
+		if (player->getHealth() <= player->maxHealth*0.5)  //ì•„ì´í…œ ì‚¬ìš© ì‹œìŠ¤í…œ //ë§¥ìŠ¤í—¬ìŠ¤ê°€ í”„ë¼ì´ë¹—ì´ë¼ ì ‘ê·¼ ì•ˆë¨
 		{
 			HealthPotion->use(Character* player);
 		}
@@ -49,10 +49,10 @@ void GameManager::battle(Character* player)
 			Attackboost->use(Character* player);
 		};
 
-		if (monster->getHealth() == 0)  //½Â¸® ¼±¾ğ
+		if (monster->getHealth() == 0)  //ìŠ¹ë¦¬ ì„ ì–¸
 		{
-			cout << monster->getName() << "¿Í(°ú) ½Î¿ò¿¡¼­ ½Â¸®Çß´Ù!" << endl;
-			delete monster;   //¸ó½ºÅÍ »èÁ¦
+			cout << monster->getName() << "ì™€(ê³¼) ì‹¸ì›€ì—ì„œ ìŠ¹ë¦¬í–ˆë‹¤!" << endl;
+			delete monster;   //ëª¬ìŠ¤í„° ì‚­ì œ
 			int gold = 100;
 			player->addGold(gold);
 			Item* item = monster->dropItem();
@@ -60,28 +60,28 @@ void GameManager::battle(Character* player)
 			{
 				player->addItem(item);
 			}
-			player->addExperience(50);   //ÀÓÀÇÀÇ ¼ıÀÚ 50 ·¹º§¾÷ ÇÏ±â
-			if (player->getExperience(100))  //100ÀÌ µÇ¸é ·¹º§¾÷
+			player->addExperience(50);   //ì„ì˜ì˜ ìˆ«ì 50 ë ˆë²¨ì—… í•˜ê¸°
+			if (player->getExperience(100))  //100ì´ ë˜ë©´ ë ˆë²¨ì—…
 			{
 				player->levelUp();
 			}
-			cout << player->getName() << "ÀÌ(°¡)" << gold << "°ñµå," << item->getName() << "À»(¸¦) È¹µæÇß´Ù." << endl;
+			cout << player->getName() << "ì´(ê°€)" << gold << "ê³¨ë“œ," << item->getName() << "ì„(ë¥¼) íšë“í–ˆë‹¤." << endl;
 			break;
 		}
 		
-		player->takeDamage(monster->getAttack());   //¸ó½ºÅÍ°¡ °ø°İÇÒ ¶§
-		cout << monster << "ÀÌ(°¡)" << player->getName() << "À»(¸¦) °ø°İÇß½À´Ï´Ù. Ã¼·Â: " << monster->getHealth() << endl;
+		player->takeDamage(monster->getAttack());   //ëª¬ìŠ¤í„°ê°€ ê³µê²©í•  ë•Œ
+		cout << monster << "ì´(ê°€)" << player->getName() << "ì„(ë¥¼) ê³µê²©í–ˆìŠµë‹ˆë‹¤. ì²´ë ¥: " << monster->getHealth() << endl;
 		
 		if (player->getHealth() == 0)
 		{
-			cout << "»ç¸Á" << endl;
+			cout << "ì‚¬ë§" << endl;
 		};
 		
 	}
 }
 void GameManager::displayInventory(Character* player)
 {
-	for (Item* item : player->getInventory()) //°Ù ÀÎº¥Åä¸® ¾øÀ½ »çÀÌÁî¸¸ ÀÖÀ½
+	for (Item* item : player->getInventory()) //ê²Ÿ ì¸ë²¤í† ë¦¬ ì—†ìŒ ì‚¬ì´ì¦ˆë§Œ ìˆìŒ
 	{
 		cout << item ->getName() << endl;
 	}
@@ -90,37 +90,37 @@ void GameManager::visitShop(Character* player)
 {
 	while (true)
 	{
-		cout << "»óÁ¡¿¡ ¿Ô½À´Ï´Ù." << endl;
-		cout << "º¸À¯ °ñµå:" << player->getGold() << endl;
-		cout << "1. È¸º¹ ¹°¾à ±¸¸Å" << endl;
-		cout << "2. È¸º¹ ¹°¾à ÆÇ¸Å" << endl;
-		cout << "3. °ø°İ·Â °­È­ ±¸¸Å" << endl;
-		cout << "4. °ø°İ·Â °­È­ ÆÇ¸Å" << endl;
-		cout << "5. »óÁ¡ ³ª°¡±â" << endl;
+		cout << "ìƒì ì— ì™”ìŠµë‹ˆë‹¤." << endl;
+		cout << "ë³´ìœ  ê³¨ë“œ:" << player->getGold() << endl;
+		cout << "1. íšŒë³µ ë¬¼ì•½ êµ¬ë§¤" << endl;
+		cout << "2. íšŒë³µ ë¬¼ì•½ íŒë§¤" << endl;
+		cout << "3. ê³µê²©ë ¥ ê°•í™” êµ¬ë§¤" << endl;
+		cout << "4. ê³µê²©ë ¥ ê°•í™” íŒë§¤" << endl;
+		cout << "5. ìƒì  ë‚˜ê°€ê¸°" << endl;
 		int choice = 0;
 		cin >> choice;
 		if (choice == 1)
 		{
-			player->setgold (player->getGold() - HealthPotion->getBuyPrice(20)); //¼Â °ñµå ¾øÀ½
-			cout << "±¸¸Å ¿Ï·á. ³²Àº °ñµå " << gold << endl;
+			player->setgold (player->getGold() - HealthPotion->getBuyPrice(20)); //ì…‹ ê³¨ë“œ ì—†ìŒ
+			cout << "êµ¬ë§¤ ì™„ë£Œ. ë‚¨ì€ ê³¨ë“œ " << gold << endl;
 			player->addItem(new HealthPotion);
 		}
 		else if (choice == 2)
 		{
-			player->setgold (player->getGold() + HealthPotion->getBuyPrice(20)); //¼Â °ñµå ¾øÀ½
-			cout << "ÆÇ¸Å ¿Ï·á. ³²Àº °ñµå " << gold << endl;
+			player->setgold (player->getGold() + HealthPotion->getBuyPrice(20)); //ì…‹ ê³¨ë“œ ì—†ìŒ
+			cout << "íŒë§¤ ì™„ë£Œ. ë‚¨ì€ ê³¨ë“œ " << gold << endl;
 			player->removeItem(HealthPotion);
 		}
 		else if (choice == 3)
 		{
-			player->setgold (player->getGold() - AttackBoost->getBuyPrice(30)); //¼Â °ñµå ¾øÀ½
-			cout << "±¸¸Å ¿Ï·á. ³²Àº °ñµå " << gold << endl;
+			player->setgold (player->getGold() - AttackBoost->getBuyPrice(30)); //ì…‹ ê³¨ë“œ ì—†ìŒ
+			cout << "êµ¬ë§¤ ì™„ë£Œ. ë‚¨ì€ ê³¨ë“œ " << gold << endl;
 			player->addItem(new AttackBoost);
 		}
 		else if (choice == 4)
 		{
-			player->setgold (player->getGold() + AttackBoost->getBuyPrice(30)); //¼Â °ñµå ¾øÀ½
-			cout << "ÆÇ¸Å ¿Ï·á. ³²Àº °ñµå " << gold << endl;
+			player->setgold (player->getGold() + AttackBoost->getBuyPrice(30)); //ì…‹ ê³¨ë“œ ì—†ìŒ
+			cout << "íŒë§¤ ì™„ë£Œ. ë‚¨ì€ ê³¨ë“œ " << gold << endl;
 			player->removeItem()Item(AttackBoost);
 		}
 		else if (choice == 5)

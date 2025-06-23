@@ -7,8 +7,8 @@ using namespace std;
 
 Shop::Shop(Character* player) : player(player) {
     
-    availableItems.push_back(make_unique<HealthPotion>("기본 체력 포션", 50)); // 이름, 가격, 
-    availableItems.push_back(make_unique<AttackBoost>("공격력 증가 물약", 70)); // 이름, 가격, 
+    availableItems.push_back(make_unique<HealthPotion>("회복 물약", 50)); // 이름, 가격, 
+    availableItems.push_back(make_unique<AttackBoost>("공격력 강화", 70)); // 이름, 가격, 
 
   
 }

@@ -9,7 +9,6 @@
 #include "../Monster/Monster.h"
 #include "../shop/shop.h"
 
-using namespace std;
 
 Monster* GameManager::generateMonster(int level)
 {
@@ -38,17 +37,17 @@ void GameManager::battle(Character* player)
 	Monster* monster = generateMonster(player -> getLevel());  //몬스터 생성
 	cout << monster->getName() << " 등장" << endl;  //몬스터 생성 알림
 	
-	while (monster->getHealth() > 0 && player->getHealth() > 0) //전투 시스템
+	while (monster->getHealth() != 0 && player->getHealth() != 0) //전투 시스템
 	{
 		//공격 주고 받기
 		monster->takeDamage(player->getAttack());  //플레이어가 공격할때
-		cout << player->getName << "이(가)" << monster << "을(를) 공격했습니다. 체력: " << player->getHealth << endl;
+		cout << player->getName << "이(가)" << monster << "을(를) 공격했습니다. 체력: " << monster->getHealth << endl;
 
-		if (player->getHealth() <= player->maxHealth*0.5)  //아이템 사용 시스템 //맥스헬스가 프라이빗이라 접근 안됨
+		if (player->getHealth() <= player->getMaxHealth()*0.5 && player->getItem(HealthPotion))  //아이템 사용 시스템 
 		{
 			HealthPotion->use(Character* player);
 		}
-		else if (player->getHealth() <= player->maxHealth*0.75)
+		else if (player->getHealth() <= player->getMaxHealth()*0.75 && player->getItem(AttackBoost))
 		{
 			AttackBoost->use(Character* player);
 		};
@@ -57,14 +56,14 @@ void GameManager::battle(Character* player)
 		{
 			cout << monster->getName() << "와(과) 싸움에서 승리했다!" << endl;
 			delete monster;   //몬스터 삭제
-			int gold = 100;
+			int gold = 100;   //골드 얻기 숫자 조절
 			player->addGold(gold);
 			Item* item = monster->dropItem();
 			if (item != nullptr)
 			{
 				player->addItem(item);
 			}
-			player->addExperience(50);   //임의의 숫자 50 레벨업 하기
+			player->addExperience(50);   //임의의 숫자 50 경험치 얻기//여기 숫자 조절하기
 			if (player->getExperience(100))  //100이 되면 레벨업
 			{
 				player->levelUp();
@@ -83,8 +82,11 @@ void GameManager::battle(Character* player)
 		
 	}
 }
-
-void GameManager::showInventoryMenu(Character* player)
+void GameManager::displayInventory(Character* player)
 {
 	player->displayInventory();
+}
+void GameManager::visitShop(Character* player)
+{
+	Shop->interact();
 }

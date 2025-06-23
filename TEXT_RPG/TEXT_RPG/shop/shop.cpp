@@ -9,8 +9,8 @@ Shop::Shop(Character* player) : player(player) {
     availableItems.push_back(make_unique<HealthPotion>("기본 체력 포션", 50)); // 이름, 가격, 
     availableItems.push_back(make_unique<AttackBoost>("공격력 증가 물약", 70)); // 이름, 가격, 
 
-
-	cout << "상점이 열렸습니다!" << endl;
+    // interact() 함수를 이용해서 상점과 상호작용하도록 함.
+	cout << "상점이 열렸습니다!" << endl; 
 	cout << "아이템을 구매하거나 판매할 수 있습니다." << endl;
 	cout << "상점에서 원하는 작업을 선택하세요." << endl;
 	cout << "1. 아이템 구매" << endl;

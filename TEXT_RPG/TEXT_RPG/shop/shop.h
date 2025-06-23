@@ -20,6 +20,7 @@ public:
     void buyItem(int index);
     void sellItem(int index);
     Shop(Character* player);
+    // 상점과 상호작용 하는 함수 interact() 구현 부탁드립니다!
 };
 
 #endif // SHOP_H

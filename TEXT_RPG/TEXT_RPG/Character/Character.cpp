@@ -121,7 +121,7 @@ void Character::removeItem(int index)
 // 상점 방문 함수
 void Character::visitShop()
 {
-    Shop shop; // Shop 클래스의 인스턴스 생성
+    Shop shop(this); // Shop 클래스의 생성자에 현재 캐릭터 객체를 전달
     shop.displayItems();
     shop.interact(this); // Character 객체를 참조로 넘겨 상점과 상호작용
 }

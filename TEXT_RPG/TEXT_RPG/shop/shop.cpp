@@ -36,7 +36,7 @@ void Shop::interact() {
         else if (choice == 2) {
             if (player->getInventorySize() == 0) {
                 cout << "인벤토리에 아이템이 없습니다." << endl;
-                return;
+                continue;
             }
             player->displayInventory();
             int itemIndex;
@@ -45,10 +45,13 @@ void Shop::interact() {
             sellItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1
         }
 
-        if (choice == 3) {
+        else if (choice == 3) {
             cout << "상점을 종료합니다." << endl;
             break; // 반복 종료
         }
+        else {
+            cout << "잘못된 선택입니다. 다시 시도하세요." << endl;
+		}
 
     }
 }

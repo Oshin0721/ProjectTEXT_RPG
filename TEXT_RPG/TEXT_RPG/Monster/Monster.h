@@ -17,55 +17,38 @@ public:
     virtual int dropGold() const = 0;              // 골드 드랍 함수
 };
 
-// Goblin, Orc, Troll, BossMonster 클래스 선언부
+class BasicMonster : public Monster {
+public:
+    BasicMonster(const std::string& name, int level);
+
+    std::string getName() const override;
+    int getHealth() const override;
+    int getAttack() const override;
+    void takeDamage(int damage) override;
+
+protected:
+    std::string name;
+    int health;
+    int attack;
+};
+
+// BasicMonster(Goblin, Orc, Troll)와 BossMonster 클래스 선언부
 // 각 클래스는 Monster를 상속하며 동일한 구조를 가짐
-// 레벨 기반으로 생성되기 때문에 생성자에 int level 있음
-class Goblin : public Monster {
+class BasicMonster : public Monster {
 public:
-    Goblin(int level);
+    BasicMonster(const std::string& name, int level);
+
     std::string getName() const override;
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    std::unique_ptr<Item> dropItem() override;
-    int dropGold() const override;
 
-private:
+protected:
     std::string name;
     int health;
     int attack;
-};
-
-class Orc : public Monster {
-public:
-    Orc(int level);
-    std::string getName() const override;
-    int getHealth() const override;
-    int getAttack() const override;
-    void takeDamage(int damage) override;
-    std::unique_ptr<Item> dropItem() override;
-    int dropGold() const override;
-
-private:
-    std::string name;
-    int health;
-    int attack;
-};
-
-class Troll : public Monster {
-public:
-    Troll(int level);
-    std::string getName() const override;
-    int getHealth() const override;
-    int getAttack() const override;
-    void takeDamage(int damage) override;
-    std::unique_ptr<Item> dropItem() override;
-    int dropGold() const override;
-
-private:
-    std::string name;
-    int health;
-    int attack;
+    std::unique_ptr<Item> dropItem();
+    int dropGold();
 };
 
 class BossMonster : public Monster {

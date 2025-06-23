@@ -21,13 +21,6 @@ public:
     void displayItems() const;
     void buyItem(int index);
     void sellItem(int index);
-
-    Shop(Character* player);
-    void interact();
-   
-
-
-    Shop(Character* player);
     void interact();
     
 

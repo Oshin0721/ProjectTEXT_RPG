@@ -13,11 +13,13 @@
 class Shop {
 private:
     std::vector<std::unique_ptr<Item>> availableItems; // std::를 추가하여 네임스페이스 명시
+    Character* player;
 public:
+	void shopClose();
     void displayItems() const;
-    void buyItem(int index, Character* player);
-    void sellItem(int index, Character* player);
-    Shop();
+    void buyItem(int index);
+    void sellItem(int index);
+    Shop(Character* player);
 };
 
 #endif // SHOP_H

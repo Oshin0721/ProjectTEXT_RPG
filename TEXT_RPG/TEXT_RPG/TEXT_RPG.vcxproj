@@ -124,7 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Character\Character.cpp" />
-    <ClCompile Include="GameManager\gamemanager.cpp">
+    <ClCompile Include="GameManager\GameManager.cpp">
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;</PreprocessorDefinitions>
@@ -138,7 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character\Character.h" />
-    <ClInclude Include="GameManager\gamemanager.h" />
+    <ClInclude Include="GameManager\GameManager.h" />
     <ClInclude Include="item\AttackBoost.h" />
     <ClInclude Include="item\HealthPotion.h" />
     <ClInclude Include="item\Item.h" />

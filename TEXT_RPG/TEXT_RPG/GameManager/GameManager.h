@@ -13,9 +13,9 @@ class GameManager
 private:
 
 public:
-	void generateMonster();
-	void battle(Character* character);
-	void displayInventory();
-	void visitShop();
+	void generateMonster(int level);
+	void battle(Charactor* player);
+	void displayInventory(Charactor* player);
+	void visitShop(Charactor* player);
 	int random = rand();
 };;

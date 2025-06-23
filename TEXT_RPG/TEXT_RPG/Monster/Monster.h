@@ -1,8 +1,10 @@
-#ifndef "MONSTER_H" 
-#define "MONSTER_H"
-    
+﻿#ifndef MONSTER_H
+#define MONSTER_H
+
+#include <string>
+#include <memory>
 #include "../item/Item.h"
-    
+
 class Monster {                                     // Monster는 추상 클래스(모든 몬스터의 공통 기능)
 public:
     virtual std::string getName() const = 0;        // 이름
@@ -24,8 +26,6 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    
-    Item* dropItem() override;
     int dropGold() override;
 
 private:
@@ -41,8 +41,6 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    
-    Item* dropItem() override;
     int dropGold() override;
 
 private:
@@ -58,8 +56,6 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    
-    Item* dropItem() override;
     int dropGold() override;
 
 private:
@@ -75,8 +71,6 @@ public:
     int getHealth() const override;
     int getAttack() const override;
     void takeDamage(int damage) override;
-    
-    Item* dropItem() override;
     int dropGold() override;
 
 private:

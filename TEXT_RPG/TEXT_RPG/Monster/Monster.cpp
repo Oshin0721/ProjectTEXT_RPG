@@ -1,5 +1,5 @@
 ﻿// Monsters.cpp
-#include "../Monster/Monster.h"
+#include "Monster.h"
 #include "../item/HealthPotion.h"
 #include "../item/AttackBoost.h"
 #include <random>

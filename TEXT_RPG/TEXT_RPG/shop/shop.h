@@ -1,18 +1,18 @@
-#ifndef SHOP_H  
+ï»¿#ifndef SHOP_H  
 #define SHOP_H  
 
 #include <string>  
 #include <vector>  
-#include <memory> // Ãß°¡: unique_ptr¸¦ »ç¿ëÇÏ±â À§ÇØ ÇÊ¿ä
-#include "../Item/Item.h" // »ó´ë °æ·Î·Î ¼öÁ¤ÇÏ¿© Item.h ÆÄÀÏÀ» ¿Ã¹Ù¸£°Ô ÂüÁ¶
+#include <memory> // ì¶”ê°€: unique_ptrë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ í•„ìš”
+#include "../Item/Item.h" // ìƒëŒ€ ê²½ë¡œë¡œ ìˆ˜ì •í•˜ì—¬ Item.h íŒŒì¼ì„ ì˜¬ë°”ë¥´ê²Œ ì°¸ì¡°
 #include "../Item/HealthPotion.h"
-#include "../Item/AttackBoost.h" // »ó´ë °æ·Î·Î ¼öÁ¤ÇÏ¿© AttackBoost.h ÆÄÀÏÀ» ¿Ã¹Ù¸£°Ô ÂüÁ¶
+#include "../Item/AttackBoost.h" // ìƒëŒ€ ê²½ë¡œë¡œ ìˆ˜ì •í•˜ì—¬ AttackBoost.h íŒŒì¼ì„ ì˜¬ë°”ë¥´ê²Œ ì°¸ì¡°
 
 
 
 class Shop {
 private:
-    std::vector<std::unique_ptr<Item>> availableItems; // std::¸¦ Ãß°¡ÇÏ¿© ³×ÀÓ½ºÆäÀÌ½º ¸í½Ã
+    std::vector<std::unique_ptr<Item>> availableItems; // std::ë¥¼ ì¶”ê°€í•˜ì—¬ ë„¤ì„ìŠ¤í˜ì´ìŠ¤ ëª…ì‹œ
     Character* player;
 public:
 	void shopClose();

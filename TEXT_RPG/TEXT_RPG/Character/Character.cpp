@@ -1,59 +1,59 @@
-#include "Character.h"
+ï»¿#include "Character.h"
 #include <iostream>
 #include <iomanip>
 #include "../shop/Shop.h"
 
-Character* Character::instance = nullptr; // ½Ì±ÛÅæ ÀÎ½ºÅÏ½º ÃÊ±âÈ­
+Character* Character::instance = nullptr; // ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ì´ˆê¸°í™”
 
-// »ı¼ºÀÚ: ÀÌ¸§À» ¹Ş¾Æ¼­ ÃÊ±â°ª ¼³Á¤
+// ìƒì„±ì: ì´ë¦„ì„ ë°›ì•„ì„œ ì´ˆê¸°ê°’ ì„¤ì •
 Character::Character(std::string name)
     : name(name), level(1), health(200), maxHealth(200), attack(30),
     experience(0), gold(0) {
 }
 
-// ½Ì±ÛÅæ ÀÎ½ºÅÏ½º ¹İÈ¯ ÇÔ¼ö
+// ì‹±ê¸€í†¤ ì¸ìŠ¤í„´ìŠ¤ ë°˜í™˜ í•¨ìˆ˜
 Character* Character::getInstance(std::string name)
 {
     if (!instance)
     {
         instance = new Character(name);
-        std::cout << "Ä³¸¯ÅÍ " << name << " »ı¼º ¿Ï·á! ·¹º§: 1, Ã¼·Â: 200, °ø°İ·Â: 30" << std::endl;
+        std::cout << "ìºë¦­í„° " << name << " ìƒì„± ì™„ë£Œ! ë ˆë²¨: 1, ì²´ë ¥: 200, ê³µê²©ë ¥: 30" << std::endl;
     }
     return instance;
 }
 
-// Ä³¸¯ÅÍ »óÅÂ Ãâ·Â ÇÔ¼ö
+// ìºë¦­í„° ìƒíƒœ ì¶œë ¥ í•¨ìˆ˜
 void Character::displayStatus() const
 {
-    std::cout << "==== Ä³¸¯ÅÍ »óÅÂ ====" << std::endl;
-    std::cout << "ÀÌ¸§: " << name << " | ·¹º§: " << level
-        << " | Ã¼·Â: " << health << "/" << maxHealth
-        << " | °ø°İ·Â: " << attack << std::endl;
-    std::cout << "°æÇèÄ¡: " << experience << "/100"
-        << " | °ñµå: " << gold << std::endl;
-    std::cout << "ÀÎº¥Åä¸®: " << inventory.size() << "°³ ¾ÆÀÌÅÛ º¸À¯" << std::endl;
+    std::cout << "==== ìºë¦­í„° ìƒíƒœ ====" << std::endl;
+    std::cout << "ì´ë¦„: " << name << " | ë ˆë²¨: " << level
+        << " | ì²´ë ¥: " << health << "/" << maxHealth
+        << " | ê³µê²©ë ¥: " << attack << std::endl;
+    std::cout << "ê²½í—˜ì¹˜: " << experience << "/100"
+        << " | ê³¨ë“œ: " << gold << std::endl;
+    std::cout << "ì¸ë²¤í† ë¦¬: " << inventory.size() << "ê°œ ì•„ì´í…œ ë³´ìœ " << std::endl;
 }
 
-// ·¹º§¾÷ ÇÔ¼ö
+// ë ˆë²¨ì—… í•¨ìˆ˜
 void Character::levelUp()
 {
     if (level >= 10) return;
 
     level++;
-    maxHealth += level * 20; // ·¹º§´ç ÃÖ´ë Ã¼·Â Áõ°¡
-    attack += level * 5; // ·¹º§´ç °ø°İ·Â Áõ°¡
-    health = maxHealth; // ·¹º§¾÷ ½Ã Ã¼·Â È¸º¹
-    experience = 0; // ·¹º§¾÷ ½Ã °æÇèÄ¡ ÃÊ±âÈ­
+    maxHealth += level * 20; // ë ˆë²¨ë‹¹ ìµœëŒ€ ì²´ë ¥ ì¦ê°€
+    attack += level * 5; // ë ˆë²¨ë‹¹ ê³µê²©ë ¥ ì¦ê°€
+    health = maxHealth; // ë ˆë²¨ì—… ì‹œ ì²´ë ¥ íšŒë³µ
+    experience = 0; // ë ˆë²¨ì—… ì‹œ ê²½í—˜ì¹˜ ì´ˆê¸°í™”
 
-    std::cout << "[·¹º§¾÷!] ÇöÀç ·¹º§: " << level << " | Ã¼·Â: "
-        << health << " | °ø°İ·Â: " << attack << std::endl;
+    std::cout << "[ë ˆë²¨ì—…!] í˜„ì¬ ë ˆë²¨: " << level << " | ì²´ë ¥: "
+        << health << " | ê³µê²©ë ¥: " << attack << std::endl;
 }
 
-//°æÇèÄ¡ È¹µæ ÇÔ¼ö
+//ê²½í—˜ì¹˜ íšë“ í•¨ìˆ˜
 void Character::addExperience(int exp)
 {
     experience += exp;
-    std::cout << "[°æÇèÄ¡ È¹µæ] + " << exp << " EXP (ÇöÀç: " << experience << "/100)" << std::endl;
+    std::cout << "[ê²½í—˜ì¹˜ íšë“] + " << exp << " EXP (í˜„ì¬: " << experience << "/100)" << std::endl;
     while (experience >= 100 && level < 10)
     {
         experience -= 100;
@@ -61,80 +61,80 @@ void Character::addExperience(int exp)
     }
 }
 
-// °ñµå È¹µæ ÇÔ¼ö
+// ê³¨ë“œ íšë“ í•¨ìˆ˜
 void Character::addGold(int amount)
 {
     gold += amount;
-    std::cout << "[°ñµå È¹µæ] +" << amount << " G (ÃÑ: " << gold << " G)" << std::endl;
+    std::cout << "[ê³¨ë“œ íšë“] +" << amount << " G (ì´: " << gold << " G)" << std::endl;
 }
 
-// ¸ó½ºÅÍÇÑÅ× ¹Ş´Â ÇÇÇØ Ã³¸® ÇÔ¼ö
+// ëª¬ìŠ¤í„°í•œí…Œ ë°›ëŠ” í”¼í•´ ì²˜ë¦¬ í•¨ìˆ˜
 void Character::takeDamage(int damage)
 {
     health -= damage;
     if (health < 0) health = 0;
 }
 
-// ÇÇÇØ¸¦ ¹Ş¾ÒÀ» ¶§ »óÅÂ Ãâ·Â
+// í”¼í•´ë¥¼ ë°›ì•˜ì„ ë•Œ ìƒíƒœ ì¶œë ¥
 bool Character::isDead() const
 {
     return health <= 0;
 }
 
-// ¾ÆÀÌÅÛ È¹µæ ÇÔ¼ö
+// ì•„ì´í…œ íšë“ í•¨ìˆ˜
 void Character::addItem(Item* item)
 {
     inventory.push_back(item);
-    std::cout << "[¾ÆÀÌÅÛ È¹µæ] " << item->getName() << " È¹µæ!" << std::endl;
+    std::cout << "[ì•„ì´í…œ íšë“] " << item->getName() << " íšë“!" << std::endl;
 }
 
-// ¾ÆÀÌÅÛ »ç¿ë ÇÔ¼ö
+// ì•„ì´í…œ ì‚¬ìš© í•¨ìˆ˜
 void Character::useItem(int index)
 {
     if (index >= 0 && index < inventory.size())
     {
         inventory[index]->use(this);
-        delete inventory[index]; // ¸Ş¸ğ¸® ÇØÁ¦
-        inventory.erase(inventory.begin() + index); // ÀÎº¥Åä¸®¿¡¼­ Á¦°Å
+        delete inventory[index]; // ë©”ëª¨ë¦¬ í•´ì œ
+        inventory.erase(inventory.begin() + index); // ì¸ë²¤í† ë¦¬ì—ì„œ ì œê±°
     }
     else
     {
-        std::cout << "[¿À·ù] Àß¸øµÈ ÀÎº¥Åä¸® ÀÎµ¦½ºÀÔ´Ï´Ù." << std::endl;
+        std::cout << "[ì˜¤ë¥˜] ì˜ëª»ëœ ì¸ë²¤í† ë¦¬ ì¸ë±ìŠ¤ì…ë‹ˆë‹¤." << std::endl;
     }
 }
 
-// ¾ÆÀÌÅÛ Á¦°Å ÇÔ¼ö (»óÁ¡¿¡ ÆÇ¸Å)
+// ì•„ì´í…œ ì œê±° í•¨ìˆ˜ (ìƒì ì— íŒë§¤)
 void Character::removeItem(int index)
 {
     if (index >= 0 && index < inventory.size())
     {
-        std::cout << "[¾ÆÀÌÅÛ ÆÇ¸Å] " << inventory[index]->getName() << " ÆÇ¸Å ¿Ï·á." << std::endl;
-        delete inventory[index]; // ¸Ş¸ğ¸® ÇØÁ¦
-        inventory.erase(inventory.begin() + index); // ÀÎº¥Åä¸®¿¡¼­ Á¦°Å
+        std::cout << "[ì•„ì´í…œ íŒë§¤] " << inventory[index]->getName() << " íŒë§¤ ì™„ë£Œ." << std::endl;
+        delete inventory[index]; // ë©”ëª¨ë¦¬ í•´ì œ
+        inventory.erase(inventory.begin() + index); // ì¸ë²¤í† ë¦¬ì—ì„œ ì œê±°
     }
     else
     {
-        std::cout << "[¿À·ù] Àß¸øµÈ ÀÎº¥Åä¸® ÀÎµ¦½ºÀÔ´Ï´Ù." << std::endl;
+        std::cout << "[ì˜¤ë¥˜] ì˜ëª»ëœ ì¸ë²¤í† ë¦¬ ì¸ë±ìŠ¤ì…ë‹ˆë‹¤." << std::endl;
     }
 }
 
-// »óÁ¡ ¹æ¹® ÇÔ¼ö
+// ìƒì  ë°©ë¬¸ í•¨ìˆ˜
 void Character::visitShop()
 {
-    Shop shop; // Shop Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º »ı¼º
+    Shop shop; // Shop í´ë˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
     shop.displayItems();
-    shop.interact(this); // Character °´Ã¼¸¦ ÂüÁ¶·Î ³Ñ°Ü »óÁ¡°ú »óÈ£ÀÛ¿ë
+    shop.interact(this); // Character ê°ì²´ë¥¼ ì°¸ì¡°ë¡œ ë„˜ê²¨ ìƒì ê³¼ ìƒí˜¸ì‘ìš©
 }
 
-std::string Character::getName() const { return name; } // Ä³¸¯ÅÍ ÀÌ¸§ ¹İÈ¯
-int Character::getHealth() const { return health; } // ÇöÀç Ã¼·Â ¹İÈ¯
-int Character::getAttack() const { return attack; } // ÇöÀç °ø°İ·Â ¹İÈ¯
-int Character::getLevel() const { return level; } // ÇöÀç ·¹º§ ¹İÈ¯ 
-int Character::getGold() const { return gold; } // ÇöÀç °ñµå ¹İÈ¯
-int Character::getExperience() const { return experience; } // ÇöÀç °æÇèÄ¡ ¹İÈ¯
-int Character::getInventorySize() const { return inventory.size(); } // ÀÎº¥Åä¸® Å©±â ¹İÈ¯ 
-Item* Character::getItem(int index) // ÀÎº¥Åä¸®¿¡¼­ ¾ÆÀÌÅÛ ¹İÈ¯
+std::string Character::getName() const { return name; } // ìºë¦­í„° ì´ë¦„ ë°˜í™˜
+int Character::getHealth() const { return health; } // í˜„ì¬ ì²´ë ¥ ë°˜í™˜
+int Character::getAttack() const { return attack; } // í˜„ì¬ ê³µê²©ë ¥ ë°˜í™˜
+int Character::getLevel() const { return level; } // í˜„ì¬ ë ˆë²¨ ë°˜í™˜ 
+int Character::getGold() const { return gold; } // í˜„ì¬ ê³¨ë“œ ë°˜í™˜
+int Character::getExperience() const { return experience; } // í˜„ì¬ ê²½í—˜ì¹˜ ë°˜í™˜
+int Character::getInventorySize() const { return inventory.size(); } // ì¸ë²¤í† ë¦¬ í¬ê¸° ë°˜í™˜ 
+Item* Character::getItem(int index) // ì¸ë²¤í† ë¦¬ì—ì„œ ì•„ì´í…œ ë°˜í™˜
 {
-    if (index < 0 || index >= inventory.size()) return nullptr; // ÀÎµ¦½º°¡ À¯È¿ÇÏÁö ¾ÊÀ¸¸é nullptr ¹İÈ¯
+    if (index < 0 || index >= inventory.size()) return nullptr; // ì¸ë±ìŠ¤ê°€ ìœ íš¨í•˜ì§€ ì•Šìœ¼ë©´ nullptr ë°˜í™˜
     return inventory[index];
 }

@@ -1,6 +1,7 @@
 ﻿#ifndef ITEM_H
 #define ITEM_H
 
+#include <memory>
 #include <string>
 
 class Character; //정의할 Character 클래스 참조만 하기위한 선언

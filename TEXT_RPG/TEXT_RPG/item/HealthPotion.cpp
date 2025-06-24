@@ -1,5 +1,6 @@
 ﻿#include "HealthPotion.h"
 #include "../Character/Character.h"
+#include "Item.h"
 
 #include <iostream>
 
@@ -26,4 +27,8 @@ int HealthPotion::getBuyPrice() const
 int HealthPotion::getSellPrice() const
 {
 	return sellPrice;
+}
+
+std::unique_ptr<Item> HealthPotion::clone() const {
+	return std::make_unique<HealthPotion>(*this);
 }

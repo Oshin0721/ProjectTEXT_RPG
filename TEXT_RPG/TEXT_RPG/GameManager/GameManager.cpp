@@ -81,7 +81,6 @@ void GameManager::battle(Character* player)
 		if (monster->getHealth() <= 0)
 		{
 			std::cout << monster->getName() << "와(과) 싸움에서 승리했다!" << std::endl;
-			delete monster;   //몬스터 삭제
 			int gold = 10 + rand() % 11;   // 10~20 골드 랜덤 획득
 			player->addGold(gold);
 			player->addExperience(50);   //임의의 숫자 50 경험치 얻기 //여기 숫자 조절하기

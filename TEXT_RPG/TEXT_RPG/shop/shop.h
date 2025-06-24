@@ -17,13 +17,13 @@ private:
     Character* player;
 
 public:
-    Shop(Character* player);
+    Shop(Character* player); // 기존 생성자
+    Shop(); // 기본 생성자 추가
+
     void displayItems() const;
     void buyItem(int index);
     void sellItem(int index);
     void interact();
-    
-
 };
 
 #endif // SHOP_H

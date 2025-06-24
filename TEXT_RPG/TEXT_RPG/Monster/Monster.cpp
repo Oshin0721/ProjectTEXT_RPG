@@ -2,6 +2,7 @@
 #include "Monster.h"
 #include "../item/HealthPotion.h"
 #include "../item/AttackBoost.h"
+#include "../LogManager/LogManager.h"
 #include <random>
 // #include <cstdlib>      //rand(), srand() 함수 사용을 위한 헤더 -> Monster.cpp에서 사용안함
 // #include <ctime>        //time() 함수 사용을 위한 헤더 -> Monster.cpp에서 사용안함
@@ -31,6 +32,8 @@ int BasicMonster::getHealth() const { return health; }
 int BasicMonster::getAttack() const { return attack; }
 
 void BasicMonster::takeDamage(int damage) {
+    // Logging
+    LogManager::getInstance()->AddGiveDamageLog(damage);
     health -= damage;
     if (health < 0) health = 0;
 }
@@ -94,6 +97,8 @@ int BossMonster::getHealth() const { return health; }
 int BossMonster::getAttack() const { return attack; }
 
 void BossMonster::takeDamage(int damage) {
+    // Logging
+    LogManager::getInstance()->AddGiveDamageLog(damage);
     health -= damage;
     if (health < 0) health = 0;
 }

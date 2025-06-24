@@ -1,5 +1,6 @@
 ﻿#include "shop.h"
 #include <iostream>
+#include "../LogManager/LogManager.h"
 using namespace std;
 
 
@@ -103,7 +104,9 @@ void Shop::buyItem(int index)
         cout << "잘못된 아이템 선택입니다." << endl;  
         return;  
     }  
-    auto& item = availableItems[index];  
+    auto& item = availableItems[index];
+    // Logging
+    LogManager::getInstance()->AddShopBuyLog(availableItems[index].get());
     if (player->getGold() < item->getBuyPrice())
     {  
         cout << "골드가 부족합니다." << endl;  
@@ -131,7 +134,9 @@ void Shop::sellItem(int index)
     
 	Item* item = player->getItem(index); //아이템 인벤토리에서 가져오기
     string itemName = item->getName(); // 안전하게 이름만 복사
-    
+
+    // Logging
+    LogManager::getInstance()->AddShopSellLog(item);
 	player->addGold(item->getSellPrice());//아이템 판매 가격을 플레이어의 골드에 추가
 
 

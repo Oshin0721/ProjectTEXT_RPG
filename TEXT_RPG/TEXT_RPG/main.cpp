@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include "shop/shop.h"
+#include "LogManager/LogManager.h"
 #include <cctype>
 using namespace std;
 
@@ -121,6 +122,16 @@ int main()
 			}
 		}
 	}
+
+	cout << "엔딩 크레딧(Enter)" << endl;
+	while (true)
+	{
+		cin.ignore(); // 이전 입력 버퍼 제거
+		if (cin.get()) break;
+	}
+	system("cls");
+	LogManager::getInstance()->PrintAllLogsSlow();
+	
 	delete player;
 	delete gm;
 

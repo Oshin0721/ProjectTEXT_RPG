@@ -36,6 +36,15 @@ void Character::increaseAttack(int amount)
     std::cout << "[공격력 증가] +" << amount << " (현재 공격력: " << attack << ")" << std::endl;
 }
 
+// 체력 회복 함수 구현
+void Character::restoreHealth(int amount)
+{
+    health += amount;
+    if (health > maxHealth)
+        health = maxHealth;
+}
+
+
 // 캐릭터 상태 출력 함수
 void Character::displayStatus() const
 {

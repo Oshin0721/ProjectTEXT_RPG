@@ -136,13 +136,21 @@ void Character::useItem(int index)
     }
 }
 
-// 아이템 제거 함수 (상점에 판매)
-void Character::removeItem(int index)
+// 아이템 제거 함수 (상점 판매, 혹은 사용 후 제거)
+void Character::removeItem(int index, bool isSelling)
 {
     if (index >= 0 && index < inventory.size())
     {
-        std::cout << "[아이템 판매] " << inventory[index]->getName() << " 판매 완료." << std::endl;
-        inventory.erase(inventory.begin() + index); // 인벤토리에서 제거
+        if (isSelling)
+        {
+            std::cout << "[아이템 판매] " << inventory[index]->getName() << " 판매 완료." << std::endl;
+        }
+        else
+        {
+            std::cout << "[아이템 사용] " << inventory[index]->getName() << " 소모됨." << std::endl;
+        }
+
+        inventory.erase(inventory.begin() + index);
     }
     else
     {

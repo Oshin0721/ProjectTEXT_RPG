@@ -66,7 +66,7 @@ void GameManager::battle(Character* player)
 					item->use(player);
 					std::cout << item->getName() << " 사용!" << std::endl;
 					std::cout << "======== ======== ========" << endl;
-					player->removeItem(i);
+					player->removeItem(i); // 아이템 사용 로그 출력
 					break;
 				}
 			}
@@ -82,10 +82,10 @@ void GameManager::battle(Character* player)
 					item->use(player);
 					std::cout << item->getName() << " 사용!" << std::endl;
 					std::cout << "======== ======== ========" << endl;
-					player->removeItem(i);
+					player->removeItem(i); // 아이템 사용 로그 출력
 					break;
 				}
-			}
+			} 
 		}
 
 		// 몬스터 죽음 체크

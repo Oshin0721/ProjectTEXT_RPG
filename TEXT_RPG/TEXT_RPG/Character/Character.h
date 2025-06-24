@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "../Item/Item.h" // 상대 경로로 수정하여 Item.h 파일을 찾을 수 있도록 설정
+#include "../item/Item.h" // 상대 경로로 수정하여 Item.h 파일을 찾을 수 있도록 설정
 
 class Character {
 private:

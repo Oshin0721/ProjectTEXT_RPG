@@ -13,10 +13,12 @@ private:
 
 public:
 	HealthPotion();         //생성자
+	
 	std::string getName() const override;  //이름 반환
 	void use(Character* character) override;
 	int getBuyPrice() const override;                // 구매 가격 반환
 	int getSellPrice() const override;               // 판매 가격 반환
+	std::unique_ptr<Item> clone() const override;
 };
 
 #endif

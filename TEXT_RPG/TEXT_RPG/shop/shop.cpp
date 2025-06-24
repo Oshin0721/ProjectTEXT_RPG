@@ -40,9 +40,14 @@ void Shop::interact() {
             cout << "----------------------" << endl;
             cout << "현재 골드: " << player->getGold() << "G" << endl;
             cout << "----------------------" << endl;
-            cout << "구매할 아이템의 번호를 입력하세요: ";
+            cout << "구매할 아이템의 번호를 입력하세요(0:취소): ";
+
             cin >> itemIndex;
             buyItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1
+            if (itemIndex == 0) {
+                cout << "구매를 취소합니다." << endl;
+                continue; // 판매 취소 시 반복문 처음으로 돌아감
+            }
         }
         else if (choice == 2) {
             if (player->getInventorySize() == 0) {
@@ -54,9 +59,13 @@ void Shop::interact() {
             cout << "----------------------" << endl;
             cout << "현재 골드: " << player->getGold() << "G" << endl;
             cout << "----------------------" << endl;
-            cout << "판매할 아이템의 번호를 입력하세요: ";
+            cout << "판매할 아이템의 번호를 입력하세요(0:취소): ";
             cin >> itemIndex;
             sellItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1
+            if(itemIndex == 0) {
+                cout << "판매를 취소합니다." << endl;
+                continue; // 판매 취소 시 반복문 처음으로 돌아감
+			}
         }
 
         else if (choice == 3) {

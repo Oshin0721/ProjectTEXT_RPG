@@ -1,6 +1,6 @@
-﻿#include "HealthPotion.h"
+﻿#include "../item/HealthPotion.h"
 #include "../Character/Character.h"
-#include "Item.h"
+
 
 #include <iostream>
 

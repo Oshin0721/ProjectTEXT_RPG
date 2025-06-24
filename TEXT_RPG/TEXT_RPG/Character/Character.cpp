@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include "../shop/Shop.h"
+#include "../item/Item.h"
 
 Character* Character::instance = nullptr; // 싱글톤 인스턴스 초기화
 

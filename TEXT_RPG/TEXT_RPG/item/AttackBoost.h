@@ -2,7 +2,6 @@
 #define ITEM_ATTACKBOOST_H
 
 #include "Item.h"
-#include "../Character/Character.h"
 
 class AttackBoost : public Item
 {

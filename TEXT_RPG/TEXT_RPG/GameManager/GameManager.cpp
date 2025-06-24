@@ -34,14 +34,16 @@ Monster* GameManager::generateMonster(int level)
 }
 void GameManager::battle(Character* player)
 {
-	Monster* monster = generateMonster(player -> getLevel());  //몬스터 생성
-	cout << monster->getName() << " 등장" << endl;  //몬스터 생성 알림
+	// 몬스터 생성
+	Monster* monster = generateMonster(player -> getLevel());
+	std::cout << monster->getName() << " 등장! 체력: " << monster->getHealth() << ", 공격력 : " << monster->getAttack() << std::endl;  //몬스터 생성 알림
 	
-	while (monster->getHealth() != 0 && player->getHealth() != 0) //전투 시스템
+	// 전투 시스템
+	while (monster->getHealth() > 0 && player->getHealth() > 0)
 	{
-		//공격 주고 받기
-		monster->takeDamage(player->getAttack());  //플레이어가 공격할때
-		cout << player->getName << "이(가)" << monster << "을(를) 공격했습니다. 체력: " << monster->getHealth << endl;
+		// 플레이어가 공격
+		monster->takeDamage(player->getAttack());
+		std::cout << player->getName() << "이(가) " << monster->getName() << "을(를) 공격했습니다. 남은 체력: " << monster->getHealth() << std::endl;
 
 		if (player->getHealth() <= player->getMaxHealth()*0.5 && player->getItem(HealthPotion))  //아이템 사용 시스템 
 		{

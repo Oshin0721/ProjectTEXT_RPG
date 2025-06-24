@@ -13,7 +13,7 @@ using namespace std;
 
 Monster* GameManager::generateMonster(int level)
 {
-	srand(time(0)); //랜덤 값 초기화 //같은 값만 나온다면 메인으로
+	//srand(time(0)); //랜덤값이 잘 안나와서 메인에서 초기화 해야할듯
 	int random = rand() % 3;  //랜덤한 수를 3으로 모듈러해서 1,2,3만 생성
 
 	if (level == 10)

@@ -21,6 +21,7 @@ int main()
 	Character* player = Character::getInstance(name);
 	GameManager* gm = new GameManager();
 	bool game = true;
+	srand(time(0)); //제너레이트 몬스터 할때 랜덤값 초기화 해주는 코드
 	while (game)
 	{
 		// Battle
@@ -29,42 +30,44 @@ int main()
 		cout << "전투 시작!" << endl;
 		std::cout << "======== ======== ========" << endl;
 		gm->battle(player);
-		if (gm->isDead() || gm->isAllEnemyDefeated()) {   // 구현필요
+		if (gm->isDead() || gm->isAllEnemyDefeated()) {    //isALlEnemyDegeated 사용 안됨. 꼭 필요한가?
 			if (gm->isDead()) {
 				cout << "캐릭터가 죽었습니다. 게임을 종료합니다." << endl;
 				break;
 			}
-			else if (gm->isAllEnemyDefeated()) {
+			else if (gm->isAllEnemyDefeated()) {   //사용 안됨
 				cout << "모든 적을 처치했습니다!" << endl;
 				break;
 			}
 		}
-
+		cout << "계속하려면 Enter 키를 누르세요...";
+		cin.ignore(); // 이전 입력 버퍼 제거
+		cin.get();
 		// Shop Event
 		char choice_shop;
-		while (true)
-		{
-			cout << "상점에 방문시겠습니까? (Y/N) " << endl;
-			cin >> choice_shop;
+		//while (true)
+		//{
+		//	cout << "상점에 방문하시겠습니까? (Y/N) " << endl;  //방문시->방문하시 오타수정
+		//	cin >> choice_shop;
 
-			choice_shop = toupper(choice_shop);
+		//	choice_shop = toupper(choice_shop);
 
-			if (choice_shop == 'Y' || choice_shop == 'N')
-			{
-				system("cls");
-				break;
-			}
-			else
-			{
-				system("cls");
-				cout << "잘못된 입력입니다. 다시 입력해 주세요" << endl;
-			}
+		//	if (choice_shop == 'Y' || choice_shop == 'N')
+		//	{
+		//		system("cls");
+		//		break;
+		//	}
+		//	else
+		//	{
+		//		system("cls");
+		//		cout << "잘못된 입력입니다. 다시 입력해 주세요" << endl;
+		//	}
 
-		}
+		//}
 
-		if (choice_shop == 'Y') {
-			gm->visitShop(player);
-		}
+		//if (choice_shop == 'Y') {
+		//	gm->visitShop(player);
+		//}
 
 		// Next Stage
 		system("cls");
@@ -79,7 +82,9 @@ int main()
 			cout << "=======================" << endl;
 			cout << "3. 전투 계속하기" << endl;
 			cout << "=======================" << endl;
-			cout << "4. 게임 종료" << endl;
+			cout << "4. 상점 방문" << endl;
+			cout << "=======================" << endl;
+			cout << "5. 게임 종료" << endl;
 			cout << "=======================" << endl;
 			cin >> choice_stage;
 			if (choice_stage == 1) {
@@ -100,6 +105,10 @@ int main()
 				break;
 			}
 			else if (choice_stage == 4) {
+				system("cls");
+				gm->visitShop(player);
+			}
+			else if (choice_stage == 5) {
 				system("cls");
 				cout << "게임 종료" << endl;
 				game = false;

@@ -1,6 +1,5 @@
 ﻿#include "AttackBoost.h"
 #include "../Character/Character.h"
-
 #include <iostream>
 
 using namespace std;
@@ -27,4 +26,8 @@ int AttackBoost::getBuyPrice() const
 int AttackBoost::getSellPrice() const
 {
 	return sellPrice;
+}
+
+std::unique_ptr<Item> AttackBoost::clone() const {
+	return std::make_unique<AttackBoost>(*this);
 }

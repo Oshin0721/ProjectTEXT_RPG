@@ -17,6 +17,7 @@ public:
 	void use(Character* character) override; //효과 적용
 	int getBuyPrice() const override;                // 구매 가격 반환
 	int getSellPrice() const override;               // 판매 가격 반환
+	std::unique_ptr<Item> clone() const override;
 };
 
 #endif

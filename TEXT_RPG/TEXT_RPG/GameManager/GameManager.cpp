@@ -8,6 +8,7 @@
 #include "../item/HealthPotion.h"
 #include "../Monster/Monster.h"
 #include "../shop/shop.h"
+#include "../LogManager/LogManager.h"
 
 using namespace std;
 
@@ -59,6 +60,8 @@ void GameManager::battle(Character* player)
 				if (item->getName() == "회복 물약")
 				{
 					//std::cout << item->getName() << " 사용!" << std::endl;
+					// Logging
+					LogManager::getInstance()->AddItemLog(item);
 					item->use(player);
 
 					//std::cout << "======== ======== ========" << endl;
@@ -75,6 +78,8 @@ void GameManager::battle(Character* player)
 				Item* item = player->getItem(i);
 				if (item->getName() == "공격력 강화")
 				{
+					// Logging
+					LogManager::getInstance()->AddItemLog(item);
 					item->use(player);
 					//std::cout << item->getName() << " 사용!" << std::endl;
 					//std::cout << "======== ======== ========" << endl;
@@ -92,6 +97,8 @@ void GameManager::battle(Character* player)
 		// 몬스터 죽음 체크
 		if (monster->getHealth() <= 0)
 		{
+			// Logging
+			LogManager::getInstance()->AddMonsterLog(monster);
 			if (monster->getName() == "Dragon")
 			{
 				clear = true;

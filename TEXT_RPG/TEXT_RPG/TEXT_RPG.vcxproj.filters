@@ -36,6 +36,9 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="LogManager\LogManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="item\Item.h">
@@ -57,6 +60,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameManager\gamemanager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LogManager\LogManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

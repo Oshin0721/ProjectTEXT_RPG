@@ -3,6 +3,7 @@
 #include <iomanip>
 #include "../shop/Shop.h"
 #include "../item/Item.h"
+#include "../LogManager/LogManager.h"
 
 Character* Character::instance = nullptr; // 싱글톤 인스턴스 초기화
 
@@ -105,6 +106,8 @@ void Character::subtractGold(int amount)
 // 몬스터한테 받는 피해 처리 함수
 void Character::takeDamage(int damage)
 {
+    // Logging
+    LogManager::getInstance()->AddGiveDamageLog(damage);
     health -= damage;
     if (health < 0) health = 0;
 }

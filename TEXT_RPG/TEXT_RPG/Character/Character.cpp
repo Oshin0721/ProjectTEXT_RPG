@@ -107,7 +107,7 @@ void Character::subtractGold(int amount)
 void Character::takeDamage(int damage)
 {
     // Logging
-    LogManager::getInstance()->AddGiveDamageLog(damage);
+    LogManager::getInstance()->AddTakeDamageLog(damage);
     health -= damage;
     if (health < 0) health = 0;
 }

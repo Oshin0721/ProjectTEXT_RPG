@@ -32,6 +32,7 @@ Monster* GameManager::generateMonster(int level)
 		return new BossMonster(level);
 	}
 }
+
 void GameManager::battle(Character* player)
 {
 	// 몬스터 생성
@@ -45,43 +46,76 @@ void GameManager::battle(Character* player)
 		monster->takeDamage(player->getAttack());
 		std::cout << player->getName() << "이(가) " << monster->getName() << "을(를) 공격했습니다. 남은 체력: " << monster->getHealth() << std::endl;
 
-		if (player->getHealth() <= player->getMaxHealth()*0.5 && player->getItem(HealthPotion))  //아이템 사용 시스템 
+		// 체력 50% 이하 -> 힐 아이템 사용 (인벤토리 자동 탐색)
+		if (player->getHealth() <= player->getMaxHealth()*0.5f)
 		{
-			HealthPotion->use(Character* player);
-		}
-		else if (player->getHealth() <= player->getMaxHealth()*0.75 && player->getItem(AttackBoost))
-		{
-			AttackBoost->use(Character* player);
-		};
-
-		if (monster->getHealth() == 0)  //승리 선언
-		{
-			cout << monster->getName() << "와(과) 싸움에서 승리했다!" << endl;
-			delete monster;   //몬스터 삭제
-			int gold = 100;   //골드 얻기 숫자 조절
-			player->addGold(gold);
-			Item* item = monster->dropItem();
-			if (item != nullptr)
+			for (int i = 0; i < player->getInventorySize(); i++)
 			{
-				player->addItem(item);
+				Item* item = player->getItem(i);
+				if (item->getName() == "HealthPotion")
+				{
+					item->use(player);
+					std::cout << item->getName() << " 사용!" << std::endl;
+					player->removeItem(i);
+					break;
+				}
 			}
-			player->addExperience(50);   //임의의 숫자 50 경험치 얻기//여기 숫자 조절하기
-			if (player->getExperience(100))  //100이 되면 레벨업
+		}
+		// 체력 75% 이하? 
+		else if (player->getHealth() <= player->getMaxHealth()*0.75)
+		{
+			for (int i = 0; i < player->getInventorySize(); i++)
+			{
+				Item* item = player->getItem(i);
+				if (item->getName() == "AttackBoost")
+				{
+					item->use(player);
+					std::cout << item->getName() << " 사용!" << std::endl;
+					player->removeItem(i);
+					break;
+				}
+			}
+		}
+
+		// 몬스터 죽음 체크
+		if (monster->getHealth() <= 0)
+		{
+			std::cout << monster->getName() << "와(과) 싸움에서 승리했다!" << std::endl;
+			delete monster;   //몬스터 삭제
+			int gold = 10 + rand() % 11;   // 10~20 골드 랜덤 획득
+			player->addGold(gold);
+			player->addExperience(50);   //임의의 숫자 50 경험치 얻기 //여기 숫자 조절하기
+			if (player->getExperience() == 100)  //100이 되면 레벨업
 			{
 				player->levelUp();
 			}
-			cout << player->getName() << "이(가)" << gold << "골드," << item->getName() << "을(를) 획득했다." << endl;
+
+			// 캐릭터 상태 명시
+			std::cout << player->getName() << "이(가) 50 EXP와 " << gold << " 골드를 획득했습니다!" << std::endl;
+
+			
+			// 아이템 드랍
+			Item* dropped = monster->dropItem();
+			if (dropped)
+			{
+				player->addItem(dropped);
+				std::cout << dropped->getName() << " 아이템을 획득했습니다!" << std::endl;
+			}
+			
+			delete monster;
 			break;
 		}
 		
-		player->takeDamage(monster->getAttack());   //몬스터가 공격할 때
-		cout << monster << "이(가)" << player->getName() << "을(를) 공격했습니다. 체력: " << monster->getHealth() << endl;
+		// 몬스터가 공격할 때
+		player->takeDamage(monster->getAttack());
+		std::cout << monster->getName() << "이(가) " << player->getName() << "을(를) 공격했습니다. 남은 체력: " << player->getHealth() << std::endl;
 		
-		if (player->getHealth() == 0)
+		if (player->getHealth() <= 0)
 		{
-			cout << "사망" << endl;
+			std::cout << player->getName() << "이(가) 사망했습니다. 게임 오버!" << std::endl;
+			delete monster;
+			break;
 		};
-		
 	}
 }
 

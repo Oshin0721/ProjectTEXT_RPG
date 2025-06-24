@@ -106,7 +106,11 @@ void GameManager::battle(Character* player)
 			}
 			std:: cout << monster->getName() << "와(과) 싸움에서 승리했다!" << endl;
 			std:: cout << "======== ======== ========" << endl;
-			int gold = 10 + rand() % 11;   //10~20 골드 랜덤 획득
+			int gold = monster->dropGold();   //몬스터에 따라서 골드 획득
+
+			// 캐릭터 상태 명시
+			std::cout << player->getName() << "이(가) 50 EXP와 " << gold << " 골드를 획득했습니다!" << std::endl;
+			std::cout << "======== ======== ========" << endl;
 			player->addGold(gold);
 			player->addExperience(50);   //임의의 숫자 50 경험치 얻기 //여기 숫자 조절하기
 			if (player->getExperience() == 100)  //100이 되면 레벨업
@@ -114,15 +118,12 @@ void GameManager::battle(Character* player)
 				player->levelUp();
 			}
 
-			// 캐릭터 상태 명시
-			std::cout << player->getName() << "이(가) 50 EXP와 " << gold << " 골드를 획득했습니다!" << std::endl;
-			std::cout << "======== ======== ========" << endl;
-				
+
 			// 아이템 드랍
 			std::unique_ptr<Item> dropped = monster->dropItem();
 			if (dropped) {
-				std::cout << dropped->getName() << " 아이템을 획득했습니다!" << std::endl;
-				std::cout << "======== ======== ========" << endl;
+				//std::cout << dropped->getName() << " 아이템을 획득했습니다!" << std::endl;
+				//std::cout << "======== ======== ========" << endl;
 				player->addItem(std::move(dropped));
 				
 				

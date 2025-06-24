@@ -17,7 +17,6 @@ private:
 
 public:
     Shop(Character* player);
-	void shopClose();
     void displayItems() const;
     void buyItem(int index);
     void sellItem(int index);

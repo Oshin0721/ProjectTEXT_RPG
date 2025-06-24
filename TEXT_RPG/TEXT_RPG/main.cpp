@@ -13,7 +13,7 @@ int main()
 	cout << "====================" << endl;
 	cout << "  텍스트 RPG 게임" << endl;
 	cout << "====================" << endl;
-	cout << "게임을 시작합니다." << endl;
+	cout << " 게임을 시작합니다." << endl;
 	cout << "====================" << endl;
 	cout << "캐릭터 이름을 입력하세요:";
 	
@@ -33,14 +33,15 @@ int main()
 		gm->battle(player);
 		if (gm->isDead() || gm->isAllEnemyDefeated()) {    //isALlEnemyDegeated 사용 안됨. 꼭 필요한가?
 			if (gm->isDead()) {
-				cout << "캐릭터가 죽었습니다. 게임을 종료합니다." << endl;
+				cout << player->getName() << "이(가) 죽었습니다. 게임을 종료합니다." << endl;
 				break;
 			}
 			else if (gm->isAllEnemyDefeated()) {   //사용 안됨
-				cout << "모든 적을 처치했습니다!" << endl;
+				cout << "모든 적을 처치했습니다. 승리!!!" << endl;
 				break;
 			}
 		}
+		cout << "====================" << endl;
 		cout << "계속하려면 Enter 키를 누르세요...";
 		cin.ignore(); // 이전 입력 버퍼 제거
 		cin.get();

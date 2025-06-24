@@ -61,7 +61,7 @@ void GameManager::battle(Character* player)
 				{
 					// Logging
 					LogManager::getInstance()->AddItemLog(item);
-					std::cout << "[아이템 사용] " << item->getName() << " 사용 완료!" << std::endl;
+					std::cout << "[아이템 사용] " << item->getName() << std::endl;
 					item->use(player);
 					player->removeItem(i);
 					break;
@@ -78,7 +78,7 @@ void GameManager::battle(Character* player)
 				{
 					// Logging
 					LogManager::getInstance()->AddItemLog(item);
-					std::cout << "[아이템 사용] " << item->getName() << " 사용 완료!" << std::endl;
+					std::cout << "[아이템 사용] " << item->getName() << std::endl;
 					item->use(player);
 					player->removeItem(i); // 아이템 사용 로그 출력
 					break;
@@ -136,8 +136,7 @@ void GameManager::battle(Character* player)
 
 		if (player->getHealth() <= 0)
 		{
-			std:: cout << player->getName() << "이(가) 사망했습니다. 게임 오버!" << endl;
-			std::cout << "======== ======== ========" << endl;
+
 			delete monster;
 			Dead = true;
 			break;

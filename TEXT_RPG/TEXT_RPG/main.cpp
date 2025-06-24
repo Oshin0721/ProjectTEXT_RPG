@@ -26,7 +26,7 @@ int main()
 		system("cls");
 		cout << "전투 시작!" << endl;
 		gm->battle(player);
-		if (gm->isDead() || gm->clear()) {   // 구현필요
+		if (gm->isDead() || gm->isAllEnemyDefeated()) {   // 구현필요
 			if (gm->isDead()) {
 				cout << "캐릭터가 죽었습니다. 게임을 종료합니다." << endl;
 				break;

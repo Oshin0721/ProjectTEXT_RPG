@@ -19,8 +19,8 @@ int main()
 	cin >> name;
 	Character* player = Character::getInstance(name);
 	GameManager* gm = new GameManager();
-
-	while (true)
+	bool game = true;
+	while (game)
 	{
 		// Battle
 		system("cls");
@@ -66,8 +66,8 @@ int main()
 		// Next Stage
 		system("cls");
 		int choice_stage;
-		bool game = true;
-		while (game)
+		
+		while (true)
 		{
 			cout << "캐릭터 상태 보기: 1, 인벤토리 보기: 2, 전투 계속하기: 3, 게임 종료: 4 " << endl;
 			cin >> choice_stage;

@@ -16,7 +16,7 @@ Monster* GameManager::generateMonster(int level)
 	srand(time(0)); //랜덤 값 초기화 //같은 값만 나온다면 메인으로
 	int random = rand() % 3;  //랜덤한 수를 3으로 모듈러해서 1,2,3만 생성
 
-	if (level == 3)
+	if (level == 10)
 	{
 	    return new BossMonster(level);
 	}

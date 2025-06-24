@@ -37,6 +37,9 @@ void Shop::interact() {
         if (choice == 1) {
             displayItems();
             int itemIndex;
+            cout << "----------------------" << endl;
+            cout << "현재 골드: " << player->getGold() << "G" << endl;
+            cout << "----------------------" << endl;
             cout << "구매할 아이템의 번호를 입력하세요: ";
             cin >> itemIndex;
             buyItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1
@@ -48,6 +51,9 @@ void Shop::interact() {
             }
             player->displayInventory();
             int itemIndex;
+            cout << "----------------------" << endl;
+            cout << "현재 골드: " << player->getGold() << "G" << endl;
+            cout << "----------------------" << endl;
             cout << "판매할 아이템의 번호를 입력하세요: ";
             cin >> itemIndex;
             sellItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1

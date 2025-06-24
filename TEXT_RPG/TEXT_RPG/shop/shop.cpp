@@ -87,7 +87,7 @@ void Shop::buyItem(int index)
     }  
 	
     
-    player->addItem(item.get());
+    player->addItem(item->clone());
     player->addGold(-item->getBuyPrice());
     cout << item->getName() << "을(를) 구매했습니다!\n";
 }

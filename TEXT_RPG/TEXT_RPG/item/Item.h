@@ -3,8 +3,8 @@
 
 #include <memory>
 #include <string>
-#include "../Character/Character.h"
 
+class Character;		//순환참조 방지로 헤더로 구현안함 
 
 class Item //모든 아이템 공통 인터페이스 정의(추상클래스)
 {

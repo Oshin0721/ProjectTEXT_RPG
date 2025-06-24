@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include "../shop/Shop.h"
+#include "../item/Item.h"
 
 Character* Character::instance = nullptr; // 싱글톤 인스턴스 초기화
 
@@ -116,7 +117,7 @@ void Character::useItem(int index)
 {
     if (index >= 0 && index < inventory.size())
     {
-        inventory[index]->use(this);
+        inventory[index]->use(static_cast<Character*>(this));
         inventory.erase(inventory.begin() + index); // 인벤토리에서 제거
     }
     else

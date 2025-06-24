@@ -2,7 +2,6 @@
 #define ITEM_HEALTHPOTION_H
 
 #include "Item.h"
-#include "../Character/Character.h"
 
 class HealthPotion : public Item
 {

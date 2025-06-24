@@ -3,8 +3,8 @@
 
 #include <memory>
 #include <string>
+#include "../Character/Character.h"
 
-class Character; //정의할 Character 클래스 참조만 하기위한 선언
 
 class Item //모든 아이템 공통 인터페이스 정의(추상클래스)
 {
@@ -16,6 +16,4 @@ public:
 	virtual int getSellPrice() const = 0;  // 판매 가격을 정수로 반환 (판매 시 사용)
 	virtual std::unique_ptr<Item> clone() const = 0; // 아이템을 복제하는 함수, 스마트 포인터를 사용하여 메모리 관리
 };
-
-
 #endif

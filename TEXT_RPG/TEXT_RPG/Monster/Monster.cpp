@@ -20,9 +20,10 @@ int getRandomInRange(int min, int max) {
 // BasicMonster 구현
 BasicMonster::BasicMonster(const std::string& name_, int level)
     : name(name_)
+
 {
-    health = getRandomInRange(level * 20, level * 30);
-    attack = getRandomInRange(level * 5, level * 10);
+    health = getRandomInRange(level * 30, level * 30);
+    attack = getRandomInRange(level * 20, level * 20);
 }
 
 std::string BasicMonster::getName() const { return name; }
@@ -84,8 +85,8 @@ int Troll::dropGold() const {
 
 // BossMonster
 BossMonster::BossMonster(int level) : name("Dragon") {
-    health = getRandomInRange(level * 30, level * 40);
-    attack = getRandomInRange(level * 10, level * 15);
+    health = getRandomInRange(level * 80, level * 80);
+    attack = getRandomInRange(level * 80, level * 80);
 }
 
 std::string BossMonster::getName() const { return name; }

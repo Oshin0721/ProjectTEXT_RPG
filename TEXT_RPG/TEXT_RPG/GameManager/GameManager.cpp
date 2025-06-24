@@ -61,7 +61,7 @@ void GameManager::battle(Character* player)
 			for (int i = 0; i < player->getInventorySize(); i++)
 			{
 				Item* item = player->getItem(i);
-				if (item->getName() == "HealthPotion")
+				if (item->getName() == "회복 물약")
 				{
 					item->use(player);
 					std::cout << item->getName() << " 사용!" << std::endl;
@@ -77,7 +77,7 @@ void GameManager::battle(Character* player)
 			for (int i = 0; i < player->getInventorySize(); i++)
 			{
 				Item* item = player->getItem(i);
-				if (item->getName() == "AttackBoost")
+				if (item->getName() == "공격력 강화")
 				{
 					item->use(player);
 					std::cout << item->getName() << " 사용!" << std::endl;

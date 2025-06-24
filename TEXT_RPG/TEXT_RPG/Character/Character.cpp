@@ -34,7 +34,7 @@ void Character::destroyInstance()
 void Character::increaseAttack(int amount)
 {
     attack += amount;
-    std::cout << "[공격력 증가] +" << amount << " (현재 공격력: " << attack << ")" << std::endl;
+    std::cout << "공격력 증가 +" << amount << " (현재 공격력: " << attack << ")" << std::endl;
 }
 
 // 체력 회복 함수 구현
@@ -66,7 +66,7 @@ void Character::levelUp()
     level++;
     maxHealth += level * 20; // 레벨당 최대 체력 증가
     attack += level * 5; // 레벨당 공격력 증가
-    health = maxHealth; // 레벨업 시 체력 회복
+    health = maxHealth; // 레벨업 시 체력 회복 //여기 밸런스 패치
     experience = 0; // 레벨업 시 경험치 초기화
 
     std::cout << "[레벨업!] 현재 레벨: " << level << " | 체력: "
@@ -141,14 +141,14 @@ void Character::removeItem(int index, bool isSelling)
 {
     if (index >= 0 && index < inventory.size())
     {
-        if (isSelling)
-        {
-            std::cout << "[아이템 판매] " << inventory[index]->getName() << " 판매 완료." << std::endl;
-        }
-        else
-        {
-            std::cout << "[아이템 사용] " << inventory[index]->getName() << " 소모됨." << std::endl;
-        }
+        //if (isSelling)
+        //{
+        //    std::cout << "[아이템 판매] " << inventory[index]->getName() << " 판매 완료." << std::endl;
+        //}
+        //else
+        //{
+        //    std::cout << "[아이템 사용] " << inventory[index]->getName() << " 소모됨." << std::endl;
+        //}
 
         inventory.erase(inventory.begin() + index);
     }

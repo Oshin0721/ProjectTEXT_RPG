@@ -50,29 +50,25 @@ void GameManager::battle(Character* player)
 	// 전투 시스템
 	while (monster->getHealth() > 0 && player->getHealth() > 0)
 	{
-		// 플레이어가 공격
-		monster->takeDamage(player->getAttack());
-		std::cout << player->getName() << "이(가) " << monster->getName() << "을(를) 공격했습니다. 남은 체력: " << monster->getHealth() << std::endl;
-		std::cout << "======== ======== ========" << endl;
-
 		// 체력 50% 이하 -> 힐 아이템 사용 (인벤토리 자동 탐색)
-		if (player->getHealth() <= player->getMaxHealth()*0.5f)
+		if (player->getHealth() <= player->getMaxHealth() * 0.5)
 		{
 			for (int i = 0; i < player->getInventorySize(); i++)
 			{
 				Item* item = player->getItem(i);
 				if (item->getName() == "회복 물약")
 				{
+					//std::cout << item->getName() << " 사용!" << std::endl;
 					item->use(player);
-					std::cout << item->getName() << " 사용!" << std::endl;
-					std::cout << "======== ======== ========" << endl;
+
+					//std::cout << "======== ======== ========" << endl;
 					player->removeItem(i); // 아이템 사용 로그 출력
 					break;
 				}
 			}
 		}
 		// 체력 75% 이하? 
-		else if (player->getHealth() <= player->getMaxHealth()*0.75)
+		else if (player->getHealth() <= player->getMaxHealth() * 0.75)
 		{
 			for (int i = 0; i < player->getInventorySize(); i++)
 			{
@@ -80,13 +76,18 @@ void GameManager::battle(Character* player)
 				if (item->getName() == "공격력 강화")
 				{
 					item->use(player);
-					std::cout << item->getName() << " 사용!" << std::endl;
-					std::cout << "======== ======== ========" << endl;
+					//std::cout << item->getName() << " 사용!" << std::endl;
+					//std::cout << "======== ======== ========" << endl;
 					player->removeItem(i); // 아이템 사용 로그 출력
 					break;
 				}
-			} 
+			}
 		}
+
+		// 플레이어가 공격
+		monster->takeDamage(player->getAttack());
+		std::cout << player->getName() << "이(가) " << monster->getName() << "을(를) 공격했습니다. 남은 체력: " << monster->getHealth() << std::endl;
+		std::cout << "======== ======== ========" << endl;
 
 		// 몬스터 죽음 체크
 		if (monster->getHealth() <= 0)

@@ -14,7 +14,7 @@ public:
 	virtual void use(Character* character) = 0; //캐릭터에게 아이템을 사용할 때 호출되는 함수
 	virtual int getBuyPrice() const = 0;   // 구매 가격을 정수로 반환 (Shop 등에서 사용)
 	virtual int getSellPrice() const = 0;  // 판매 가격을 정수로 반환 (판매 시 사용)
-	virtual unique_ptr<Item> clone() const = 0; // 아이템을 복제하는 함수, 스마트 포인터를 사용하여 메모리 관리
+	virtual std::unique_ptr<Item> clone() const = 0; // 아이템을 복제하는 함수, 스마트 포인터를 사용하여 메모리 관리
 };
 
 

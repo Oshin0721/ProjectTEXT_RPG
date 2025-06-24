@@ -132,6 +132,7 @@
     </ClCompile>
     <ClCompile Include="item\AttackBoost.cpp" />
     <ClCompile Include="item\HealthPotion.cpp" />
+    <ClCompile Include="LogManager\LogManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster\Monster.cpp" />
     <ClCompile Include="shop\shop.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="item\AttackBoost.h" />
     <ClInclude Include="item\HealthPotion.h" />
     <ClInclude Include="item\Item.h" />
+    <ClInclude Include="LogManager\LogManager.h" />
     <ClInclude Include="Monster\Monster.h" />
     <ClInclude Include="shop\shop.h" />
   </ItemGroup>

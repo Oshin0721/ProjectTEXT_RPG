@@ -41,7 +41,7 @@ public:
 
     void addItem(std::unique_ptr<Item> item);
     void useItem(int index);
-    void removeItem(int index, bool isSelling = false); // 추가 : 인벤토리에서 아이템 제거
+    void removeItem(int index); // 추가 : 인벤토리에서 아이템 제거
     void displayInventory() const; // 인벤토리 표시 함수 선언
 
     std::string getName() const;

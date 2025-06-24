@@ -14,9 +14,7 @@ string AttackBoost::getName() const // 아이템 이름 반환
 
 void AttackBoost::use(Character* character)
 {
-	cout << name << "사용! ";  //순서 변경하고 내용 단순화 
 	character->increaseAttack(attackIncrease); //공격력증가
-	//cout << name << "사용 +" << attackIncrease << "공격력 증가 완료" << endl;
 }
 
 int AttackBoost::getBuyPrice() const

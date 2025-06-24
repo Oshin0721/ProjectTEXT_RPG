@@ -59,13 +59,11 @@ void GameManager::battle(Character* player)
 				Item* item = player->getItem(i);
 				if (item->getName() == "회복 물약")
 				{
-					//std::cout << item->getName() << " 사용!" << std::endl;
 					// Logging
 					LogManager::getInstance()->AddItemLog(item);
+					std::cout << "[아이템 사용] " << item->getName() << " 사용 완료!" << std::endl;
 					item->use(player);
-
-					//std::cout << "======== ======== ========" << endl;
-					player->removeItem(i); // 아이템 사용 로그 출력
+					player->removeItem(i);
 					break;
 				}
 			}
@@ -80,9 +78,8 @@ void GameManager::battle(Character* player)
 				{
 					// Logging
 					LogManager::getInstance()->AddItemLog(item);
+					std::cout << "[아이템 사용] " << item->getName() << " 사용 완료!" << std::endl;
 					item->use(player);
-					//std::cout << item->getName() << " 사용!" << std::endl;
-					//std::cout << "======== ======== ========" << endl;
 					player->removeItem(i); // 아이템 사용 로그 출력
 					break;
 				}

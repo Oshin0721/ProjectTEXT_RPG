@@ -139,8 +139,6 @@ void Shop::sellItem(int index)
     LogManager::getInstance()->AddShopSellLog(item);
 	player->addGold(item->getSellPrice());//아이템 판매 가격을 플레이어의 골드에 추가
 
-
-	player->removeItem(index, true); // 아이템 인벤토리 제거, true -> 판매용 로그 출력
-
-    cout << itemName << "을(를) 판매했습니다!" << endl;
+    std::cout << "[아이템 판매] " << player->getItem(index)->getName() << " 판매 완료!" << std::endl;
+	player->removeItem(index); // 아이템 인벤토리 제거
 }

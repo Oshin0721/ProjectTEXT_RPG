@@ -82,10 +82,12 @@ void GameManager::battle(Character* player)
 		
 	}
 }
+
 void GameManager::displayInventory(Character* player)
 {
 	player->displayInventory();
 }
+
 void GameManager::visitShop(Character* player)
 {
 	Shop->interact();

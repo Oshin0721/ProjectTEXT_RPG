@@ -139,13 +139,6 @@ void Character::removeItem(int index)
     }
 }
 
-// 상점 방문 함수
-void Character::visitShop()
-{
-    Shop shop(this); // Shop 클래스의 인스턴스 생성
-    shop.interact(); // Character 객체를 참조로 넘겨 상점과 상호작용
-}
-
 // displayInventory 함수 구현
 void Character::displayInventory() const {
     if (inventory.empty()) {

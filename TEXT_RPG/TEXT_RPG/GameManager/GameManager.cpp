@@ -16,7 +16,7 @@ Monster* GameManager::generateMonster(int level)
 	srand(time(0)); //랜덤 값 초기화 //같은 값만 나온다면 메인으로
 	int random = rand() % 3;  //랜덤한 수를 3으로 모듈러해서 1,2,3만 생성
 
-	if (level == 10)
+	if (level == 3)
 	{
 	    return new BossMonster(level);
 	}
@@ -108,8 +108,10 @@ void GameManager::battle(Character* player)
 			// 아이템 드랍
 			std::unique_ptr<Item> dropped = monster->dropItem();
 			if (dropped) {
-				player->addItem(std::move(dropped));
 				std::cout << dropped->getName() << " 아이템을 획득했습니다!" << std::endl;
+				player->addItem(std::move(dropped));
+				
+				
 			}
 			
 			delete monster;

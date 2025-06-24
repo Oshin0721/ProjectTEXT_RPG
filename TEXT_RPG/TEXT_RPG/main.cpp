@@ -46,30 +46,7 @@ int main()
 		cin.get();
 		// Shop Event
 		char choice_shop;
-		//while (true)
-		//{
-		//	cout << "상점에 방문하시겠습니까? (Y/N) " << endl;  //방문시->방문하시 오타수정
-		//	cin >> choice_shop;
-
-		//	choice_shop = toupper(choice_shop);
-
-		//	if (choice_shop == 'Y' || choice_shop == 'N')
-		//	{
-		//		system("cls");
-		//		break;
-		//	}
-		//	else
-		//	{
-		//		system("cls");
-		//		cout << "잘못된 입력입니다. 다시 입력해 주세요" << endl;
-		//	}
-
-		//}
-
-		//if (choice_shop == 'Y') {
-		//	gm->visitShop(player);
-		//}
-
+		
 		// Next Stage
 		system("cls");
 		int choice_stage;

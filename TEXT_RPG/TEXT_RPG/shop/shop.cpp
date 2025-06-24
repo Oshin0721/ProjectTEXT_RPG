@@ -46,7 +46,7 @@ void Shop::interact() {
             buyItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1
             if (itemIndex == 0) {
                 cout << "구매를 취소합니다." << endl;
-                continue; // 판매 취소 시 반복문 처음으로 돌아감
+                continue; 
             }
         }
         else if (choice == 2) {
@@ -64,7 +64,7 @@ void Shop::interact() {
             sellItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1
             if(itemIndex == 0) {
                 cout << "판매를 취소합니다." << endl;
-                continue; // 판매 취소 시 반복문 처음으로 돌아감
+                continue; 
 			}
         }
 

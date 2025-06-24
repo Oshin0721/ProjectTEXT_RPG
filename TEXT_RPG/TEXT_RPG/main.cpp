@@ -14,8 +14,9 @@ int main()
 	cout << "====================" << endl;
 	cout << "게임을 시작합니다." << endl;
 	cout << "====================" << endl;
-	string name;
 	cout << "캐릭터 이름을 입력하세요: ";
+	cout << "====================" << endl;
+	string name;
 	cin >> name;
 	Character* player = Character::getInstance(name);
 	GameManager* gm = new GameManager();
@@ -69,7 +70,15 @@ int main()
 		
 		while (true)
 		{
-			cout << "캐릭터 상태 보기: 1, 인벤토리 보기: 2, 전투 계속하기: 3, 게임 종료: 4 " << endl;
+			cout << "====================" << endl;
+			cout << "1. 캐릭터 상태 보기" << endl;
+			cout << "=======================" << endl;
+			cout << "2. 인벤토리 보기" << endl;
+			cout << "=======================" << endl;
+			cout << "3. 전투 계속하기" << endl;
+			cout << "=======================" << endl;
+			cout << "4. 게임 종료" << endl;
+			cout << "=======================" << endl;
 			cin >> choice_stage;
 			if (choice_stage == 1) {
 				system("cls");

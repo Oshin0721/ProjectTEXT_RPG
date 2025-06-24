@@ -7,8 +7,9 @@
 #include "../Item/Item.h" // 상대 경로로 수정하여 Item.h 파일을 올바르게 참조
 #include "../Item/HealthPotion.h"
 #include "../Item/AttackBoost.h" // 상대 경로로 수정하여 AttackBoost.h 파일을 올바르게 참조
+#include "../Character/Character.h" // 상대 경로로 수정하여 Character.h 파일을 올바르게 참조
 
-class Character;
+
 
 class Shop {
 private:

@@ -9,6 +9,7 @@
 #include "../Monster/Monster.h"
 #include "../shop/shop.h"
 
+using namespace std;
 
 Monster* GameManager::generateMonster(int level)
 {
@@ -35,6 +36,7 @@ Monster* GameManager::generateMonster(int level)
 
 void GameManager::battle(Character* player)
 {
+	
 	// 몬스터 생성
 	Monster* monster = generateMonster(player -> getLevel());
 	std::cout << monster->getName() << " 등장! 체력: " << monster->getHealth() << ", 공격력 : " << monster->getAttack() << std::endl;  //몬스터 생성 알림
@@ -80,8 +82,9 @@ void GameManager::battle(Character* player)
 		// 몬스터 죽음 체크
 		if (monster->getHealth() <= 0)
 		{
-			std::cout << monster->getName() << "와(과) 싸움에서 승리했다!" << std::endl;
-			int gold = 10 + rand() % 11;   // 10~20 골드 랜덤 획득
+			cout << monster->getName() << "와(과) 싸움에서 승리했다!" << endl;
+			delete monster;   //몬스터 삭제
+			int gold = 10 + rand() % 11;   //10~20 골드 랜덤 획득
 			player->addGold(gold);
 			player->addExperience(50);   //임의의 숫자 50 경험치 얻기 //여기 숫자 조절하기
 			if (player->getExperience() == 100)  //100이 되면 레벨업
@@ -105,16 +108,16 @@ void GameManager::battle(Character* player)
 			break;
 		}
 		
-		// 몬스터가 공격할 때
-		player->takeDamage(monster->getAttack());
-		std::cout << monster->getName() << "이(가) " << player->getName() << "을(를) 공격했습니다. 남은 체력: " << player->getHealth() << std::endl;
-		
+		player->takeDamage(monster->getAttack());   //몬스터가 공격할 때
+		cout << monster->getName() << "이(가) " << player->getName() << "을(를) 공격했습니다. 남은 체력: " << player->getHealth() << endl;
+
 		if (player->getHealth() <= 0)
 		{
-			std::cout << player->getName() << "이(가) 사망했습니다. 게임 오버!" << std::endl;
+			cout << player->getName() << "이(가) 사망했습니다. 게임 오버!" << endl;
 			delete monster;
 			break;
 		};
+		
 	}
 }
 

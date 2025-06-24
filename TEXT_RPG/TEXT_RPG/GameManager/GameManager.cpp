@@ -13,10 +13,14 @@ using namespace std;
 
 Monster* GameManager::generateMonster(int level)
 {
-	srand(time(0)); //랜덤 값 초기화
+	srand(time(0)); //랜덤 값 초기화 //같은 값만 나온다면 메인으로
 	int random = rand() % 3;  //랜덤한 수를 3으로 모듈러해서 1,2,3만 생성
 
-	if (random == 0)
+	if (level == 10)
+	{
+	    return new BossMonster(level);
+	}
+	else if (random == 0)
 	{
 		return new Goblin(level);
 	}
@@ -28,10 +32,11 @@ Monster* GameManager::generateMonster(int level)
 	{
 		return new Troll(level);
 	}
-	else if (level == 10)
+	else
 	{
-		return new BossMonster(level);
+		return nullptr; //의도하지 않은 상황일 때
 	}
+
 }
 
 void GameManager::battle(Character* player)
@@ -40,7 +45,7 @@ void GameManager::battle(Character* player)
 	// 몬스터 생성
 	Monster* monster = generateMonster(player -> getLevel());
 	std::cout << monster->getName() << " 등장! 체력: " << monster->getHealth() << ", 공격력 : " << monster->getAttack() << std::endl;  //몬스터 생성 알림
-	
+
 	// 전투 시스템
 	while (monster->getHealth() > 0 && player->getHealth() > 0)
 	{
@@ -82,6 +87,11 @@ void GameManager::battle(Character* player)
 		// 몬스터 죽음 체크
 		if (monster->getHealth() <= 0)
 		{
+			if (monster->getName() == "Dragon")
+			{
+				clear = true;
+				break;
+			}
 			cout << monster->getName() << "와(과) 싸움에서 승리했다!" << endl;
 			delete monster;   //몬스터 삭제
 			int gold = 10 + rand() % 11;   //10~20 골드 랜덤 획득
@@ -114,12 +124,20 @@ void GameManager::battle(Character* player)
 		{
 			cout << player->getName() << "이(가) 사망했습니다. 게임 오버!" << endl;
 			delete monster;
+			Dead = true;
 			break;
 		};
 		
 	}
 }
-
+bool GameManager::isAllEnemyDefeated()
+{
+	return clear;
+}
+bool GameManager::isDead()
+{
+	return Dead;
+}
 void GameManager::displayInventory(Character* player)
 {
 	player->displayInventory();

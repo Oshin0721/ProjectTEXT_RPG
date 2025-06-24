@@ -91,7 +91,7 @@ void GameManager::battle(Character* player)
 
 		// 플레이어가 공격
 		monster->takeDamage(player->getAttack());
-		std::cout << player->getName() << "이(가) " << monster->getName() << "을(를) 공격했습니다. 남은 체력: " << monster->getHealth() << std::endl;
+		std::cout << player->getName() << "이(가) " << monster->getName() << "을(를) 공격했습니다."<< monster->getName()<<"의 남은 체력 : " << monster->getHealth() << std::endl;
 		std::cout << "======== ======== ========" << endl;
 
 		// 몬스터 죽음 체크
@@ -133,7 +133,7 @@ void GameManager::battle(Character* player)
 		}
 		
 		player->takeDamage(monster->getAttack());   //몬스터가 공격할 때
-		std:: cout << monster->getName() << "이(가) " << player->getName() << "을(를) 공격했습니다. 남은 체력: " << player->getHealth() << endl;
+		std:: cout << monster->getName() << "이(가) " << player->getName() << "을(를) 공격했습니다."<< player->getName() <<"의 남은 체력 : " << player->getHealth() << endl;
 		std:: cout << "======== ======== ========" << endl;
 
 		if (player->getHealth() <= 0)

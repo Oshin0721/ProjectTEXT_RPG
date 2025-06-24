@@ -77,7 +77,8 @@ void Character::levelUp()
 void Character::addExperience(int exp)
 {
     experience += exp;
-    std::cout << "[경험치 획득] + " << exp << " EXP (현재: " << experience << "/100)" << std::endl;
+    std::cout << "[경험치 획득] +" << exp << " EXP → (레벨: " << level
+        << ", 현재 경험치: " << experience << "/100)" << std::endl;
     while (experience >= 100 && level < 10)
     {
         experience -= 100;

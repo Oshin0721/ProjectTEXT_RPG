@@ -24,7 +24,7 @@ void Shop::interact() {
         cout << "아이템을 구매하거나 판매할 수 있습니다." << endl;
         cout << "상점에서 원하는 작업을 선택하세요." << endl;
 		cout << "----------------------" << endl;
-		cout << "현제 골드: " << player->getGold()<< "G" << endl;
+		cout << "현재 골드: " << player->getGold()<< "G" << endl;
 		cout << "----------------------" << endl;
         cout << "1. 아이템 구매" << endl;
         cout << "2. 아이템 판매" << endl;

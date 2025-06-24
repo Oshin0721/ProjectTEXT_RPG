@@ -89,6 +89,12 @@ int main()
 			else if (choice_stage == 2) {
 				system("cls");
 				player->displayInventory();
+				cout << "계속하려면 Enter 키를 누르세요...";
+				cin.ignore(); // 이전 입력 버퍼 제거
+				cin.get();    // Enter 키 대기
+
+				system("cls"); // 화면 정리
+				
 			}
 			else if (choice_stage == 3) {
 				break;

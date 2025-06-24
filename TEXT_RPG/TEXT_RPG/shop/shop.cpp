@@ -123,7 +123,7 @@ void Shop::sellItem(int index)
 	Item* item = player->getItem(index); //아이템 인벤토리에서 가져오기
     string itemName = item->getName(); // 안전하게 이름만 복사
     
-	player->addGold(player->getGold() + item->getSellPrice());//아이템 판매 가격을 플레이어의 골드에 추가
+	player->addGold(item->getSellPrice());//아이템 판매 가격을 플레이어의 골드에 추가
 
 
 	player->removeItem(index);//아이템을 인벤토리에서 제거 추가 해주시면 감사합니다.

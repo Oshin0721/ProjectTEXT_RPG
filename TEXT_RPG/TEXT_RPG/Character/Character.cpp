@@ -159,7 +159,7 @@ void Character::displayInventory() const {
 
     std::cout << "인벤토리 목록:" << std::endl;
     for (size_t i = 0; i < inventory.size(); ++i) {
-        std::cout << i + 1 << ". " << inventory[i]->getName() << std::endl;
+        std::cout << i + 1 << ": " << inventory[i]->getName() << std::endl;
     }
 }
 

@@ -18,11 +18,11 @@ Shop::Shop() : player(nullptr) {
 }
 
 void Shop::interact() {
+    cout << "상점이 열렸습니다!" << endl;
+    cout << "아이템을 구매하거나 판매할 수 있습니다." << endl;
+    cout << "상점에서 원하는 작업을 선택하세요." << endl;
     while (true) { // 상점이 열려있는 동안 반복
 
-        cout << "상점이 열렸습니다!" << endl;
-        cout << "아이템을 구매하거나 판매할 수 있습니다." << endl;
-        cout << "상점에서 원하는 작업을 선택하세요." << endl;
 		cout << "----------------------" << endl;
 		cout << "현재 골드: " << player->getGold()<< "G" << endl;
 		cout << "----------------------" << endl;
@@ -33,6 +33,7 @@ void Shop::interact() {
 
         int choice;
         cin >> choice;
+        system("cls");
         if (choice == 1) {
             displayItems();
             int itemIndex;
@@ -80,7 +81,8 @@ void Shop::displayItems() const {
 	}
 }
 void Shop::buyItem(int index) 
-{  
+{
+    system("cls");
     if (index < 0 || index >= availableItems.size())
     {  
         cout << "잘못된 아이템 선택입니다." << endl;  
@@ -99,7 +101,8 @@ void Shop::buyItem(int index)
     cout << item->getName() << "을(를) 구매했습니다!\n";
 }
 void Shop::sellItem(int index)
-{    
+{
+    system("cls");
     if (index < 0 || index >= player->getInventorySize())
     { 
         cout << "잘못된 아이템 선택입니다." << endl;

@@ -88,8 +88,8 @@ int Troll::dropGold() const {
 
 // BossMonster
 BossMonster::BossMonster(int level) : name("Dragon") {
-    health = getRandomInRange(level * 80, level * 80);
-    attack = getRandomInRange(level * 80, level * 80);
+    health = getRandomInRange(level * 100, level * 120);
+    attack = getRandomInRange(level * 40, level * 60);
 }
 
 std::string BossMonster::getName() const { return name; }

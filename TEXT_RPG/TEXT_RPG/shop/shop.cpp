@@ -93,7 +93,7 @@ void Shop::buyItem(int index)
         return;  
     }  
 	
-    
+    // subtractGold 함수 필요!
     player->addItem(item->clone());
     player->addGold(-item->getBuyPrice());
     cout << item->getName() << "을(를) 구매했습니다!\n";

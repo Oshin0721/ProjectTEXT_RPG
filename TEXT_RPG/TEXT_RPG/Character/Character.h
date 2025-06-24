@@ -34,6 +34,7 @@ public:
     void addGold(int amount);
     void takeDamage(int damage);
     bool isDead() const;
+    void subtractGold(int amount);  // 골드 차감 함수
 
     void restoreHealth(int amount);       // 체력 회복
     void increaseAttack(int amount);     // 공격력 증가

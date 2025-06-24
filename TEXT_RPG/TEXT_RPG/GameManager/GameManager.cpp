@@ -45,6 +45,7 @@ void GameManager::battle(Character* player)
 	// 몬스터 생성
 	Monster* monster = generateMonster(player -> getLevel());
 	std::cout << monster->getName() << " 등장! 체력: " << monster->getHealth() << ", 공격력 : " << monster->getAttack() << std::endl;  //몬스터 생성 알림
+	std::cout << "======== ======== ========" << endl;
 
 	// 전투 시스템
 	while (monster->getHealth() > 0 && player->getHealth() > 0)
@@ -52,6 +53,7 @@ void GameManager::battle(Character* player)
 		// 플레이어가 공격
 		monster->takeDamage(player->getAttack());
 		std::cout << player->getName() << "이(가) " << monster->getName() << "을(를) 공격했습니다. 남은 체력: " << monster->getHealth() << std::endl;
+		std::cout << "======== ======== ========" << endl;
 
 		// 체력 50% 이하 -> 힐 아이템 사용 (인벤토리 자동 탐색)
 		if (player->getHealth() <= player->getMaxHealth()*0.5f)
@@ -63,6 +65,7 @@ void GameManager::battle(Character* player)
 				{
 					item->use(player);
 					std::cout << item->getName() << " 사용!" << std::endl;
+					std::cout << "======== ======== ========" << endl;
 					player->removeItem(i);
 					break;
 				}
@@ -78,6 +81,7 @@ void GameManager::battle(Character* player)
 				{
 					item->use(player);
 					std::cout << item->getName() << " 사용!" << std::endl;
+					std::cout << "======== ======== ========" << endl;
 					player->removeItem(i);
 					break;
 				}
@@ -92,7 +96,8 @@ void GameManager::battle(Character* player)
 				clear = true;
 				break;
 			}
-			cout << monster->getName() << "와(과) 싸움에서 승리했다!" << endl;
+			std:: cout << monster->getName() << "와(과) 싸움에서 승리했다!" << endl;
+			std:: cout << "======== ======== ========" << endl;
 			int gold = 10 + rand() % 11;   //10~20 골드 랜덤 획득
 			player->addGold(gold);
 			player->addExperience(50);   //임의의 숫자 50 경험치 얻기 //여기 숫자 조절하기
@@ -103,12 +108,13 @@ void GameManager::battle(Character* player)
 
 			// 캐릭터 상태 명시
 			std::cout << player->getName() << "이(가) 50 EXP와 " << gold << " 골드를 획득했습니다!" << std::endl;
-
+			std::cout << "======== ======== ========" << endl;
 				
 			// 아이템 드랍
 			std::unique_ptr<Item> dropped = monster->dropItem();
 			if (dropped) {
 				std::cout << dropped->getName() << " 아이템을 획득했습니다!" << std::endl;
+				std::cout << "======== ======== ========" << endl;
 				player->addItem(std::move(dropped));
 				
 				
@@ -119,11 +125,13 @@ void GameManager::battle(Character* player)
 		}
 		
 		player->takeDamage(monster->getAttack());   //몬스터가 공격할 때
-		cout << monster->getName() << "이(가) " << player->getName() << "을(를) 공격했습니다. 남은 체력: " << player->getHealth() << endl;
+		std:: cout << monster->getName() << "이(가) " << player->getName() << "을(를) 공격했습니다. 남은 체력: " << player->getHealth() << endl;
+		std:: cout << "======== ======== ========" << endl;
 
 		if (player->getHealth() <= 0)
 		{
-			cout << player->getName() << "이(가) 사망했습니다. 게임 오버!" << endl;
+			std:: cout << player->getName() << "이(가) 사망했습니다. 게임 오버!" << endl;
+			std::cout << "======== ======== ========" << endl;
 			delete monster;
 			Dead = true;
 			break;

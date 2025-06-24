@@ -14,8 +14,8 @@ int main()
 	cout << "====================" << endl;
 	cout << "게임을 시작합니다." << endl;
 	cout << "====================" << endl;
-	cout << "캐릭터 이름을 입력하세요: ";
-	cout << "====================" << endl;
+	cout << "캐릭터 이름을 입력하세요:";
+	
 	string name;
 	cin >> name;
 	Character* player = Character::getInstance(name);
@@ -25,7 +25,9 @@ int main()
 	{
 		// Battle
 		system("cls");
+		std::cout << "======== ======== ========" << endl;
 		cout << "전투 시작!" << endl;
+		std::cout << "======== ======== ========" << endl;
 		gm->battle(player);
 		if (gm->isDead() || gm->isAllEnemyDefeated()) {   // 구현필요
 			if (gm->isDead()) {

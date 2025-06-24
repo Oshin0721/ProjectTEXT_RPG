@@ -97,10 +97,9 @@ void GameManager::battle(Character* player)
 
 			
 			// 아이템 드랍
-			Item* dropped = monster->dropItem();
-			if (dropped)
-			{
-				player->addItem(dropped);
+			std::unique_ptr<Item> dropped = monster->dropItem();
+			if (dropped) {
+				player->addItem(std::move(dropped));
 				std::cout << dropped->getName() << " 아이템을 획득했습니다!" << std::endl;
 			}
 			
@@ -128,5 +127,6 @@ void GameManager::displayInventory(Character* player)
 
 void GameManager::visitShop(Character* player)
 {
-	Shop->interact();
+    Shop shop(player); // Shop 객체 생성 시 player 전달
+    shop.interact();   // Shop과 상호작용
 }

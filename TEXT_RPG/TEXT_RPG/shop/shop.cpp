@@ -12,6 +12,11 @@ Shop::Shop(Character* player) : player(player) {
   
 }
 
+Shop::Shop() : player(nullptr) {
+    // 기본 생성자: player를 nullptr로 초기화
+    // 필요한 경우 기본 아이템을 availableItems에 추가할 수 있음
+}
+
 void Shop::interact() {
     while (true) { // 상점이 열려있는 동안 반복
 

@@ -93,6 +93,15 @@ void Character::addGold(int amount)
     std::cout << "[골드 획득] +" << amount << " G (총: " << gold << " G)" << std::endl;
 }
 
+// 골드 차감 함수
+void Character::subtractGold(int amount)
+{
+    gold -= amount;
+    if (gold < 0) gold = 0;  // 음수 방지
+    std::cout << "[골드 사용] -" << amount << " Gold (남은 골드: " << gold << ")" << std::endl;
+}
+
+
 // 몬스터한테 받는 피해 처리 함수
 void Character::takeDamage(int damage)
 {

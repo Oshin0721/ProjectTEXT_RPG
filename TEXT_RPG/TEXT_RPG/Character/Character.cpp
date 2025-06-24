@@ -44,6 +44,7 @@ void Character::restoreHealth(int amount)
     health += amount;
     if (health > maxHealth)
         health = maxHealth;
+    std::cout << "체력 증가 +" << amount << " (현재 체력: " << health << ")" << std::endl;
 }
 
 

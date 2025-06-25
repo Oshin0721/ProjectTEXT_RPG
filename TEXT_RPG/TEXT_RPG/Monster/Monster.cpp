@@ -41,7 +41,7 @@ void BasicMonster::takeDamage(int damage) {
 // Goblin
 Goblin::Goblin(int level) : BasicMonster("Goblin", level) {}
 
-//아이템 드랍: 50% 확률은 회복포션, 25퍼센트 확률은 공격력 증가, 나머지는 없음
+//아이템 드랍: 75% 확률은 회복포션, 25퍼센트 확률은 공격력 증가, 나머지는 없음
 std::unique_ptr<Item> Goblin::dropItem() {
     int roll = getRandomInRange(0, 99);
     if (roll < 75)

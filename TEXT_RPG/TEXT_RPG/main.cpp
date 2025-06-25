@@ -19,7 +19,13 @@ int main()
 	cout << "캐릭터 이름을 입력하세요:";
 	
 	string name;
-	cin >> name;
+	getline(cin, name);  // 처음 입력 받기 전에 getline 사용
+
+	while (name.empty()) {
+		cout << "이름이 비어있습니다. 다시 입력하세요: ";
+		getline(cin, name); // 엔터까지 전체 입력 받아오기
+	}
+
 	Character* player = Character::getInstance(name);
 	GameManager* gm = new GameManager();
 	bool game = true;

@@ -1,8 +1,12 @@
+<br/>
+
 # ⚔️ 텍스트 RPG 게임 - "TEXT-RPG"
 
 턴제 전투, 성장, 아이템, 상점 시스템이 포함된 텍스트 RPG 게임입니다.
+<br/>
 플레이어는 영웅이 되어 다양한 몬스터를 쓰러뜨리고, 드래곤을 물리쳐 세계를 구해야 합니다.
 
+<br/>
 
 ## 📑 목차
 1. 주요 기능
@@ -12,6 +16,7 @@
 5. 폴더 구조
 6. 개선 사항
 
+<br/>
 
 ## 1️⃣ 주요 기능
 
@@ -34,8 +39,9 @@
 ### 🔹 보스 몬스터(드래곤)
 - 레벨 10에 도달 시 등장
 - 처치 시 게임 클리어
-- 비처치 시 게임 오버
+- 처치 실패 시 게임 오버
 
+<br/>
 
 ## 2️⃣ 실행 방법
 
@@ -48,8 +54,9 @@
 1. main.cpp에서 프로그램 시작
 2. Visual Studio 기준: Ctrl + F5 또는 디버깅 없이 시작
 
+<br/>
 
-## 🧑‍🤝‍🧑 팀 소개
+## 3️⃣ 팀 소개
 
 | 이름 | 역할 | 주요 담당 |
 |------|------|-----------|
@@ -60,31 +67,52 @@
 | 정성현 | 팀원 | Shop, Main / 발표자 |
 | 조정원 | 팀원 | GameManager, LogManager |
 
+<br/>
 
-## 📚 기술 스택
+## 4️⃣ 기술 스택
 <img src="https://img.shields.io/badge/c++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white)
+### 🤝 협업 툴
+![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white) <img src="https://img.shields.io/badge/ZEP-5C57F2?style=for-the-badge&logo=ZEP&logoColor=white">
+
 - OOP (객체지향 프로그래밍)
 - Git & GitHub
 - UML 다이어그램 기반 설계
 - STL 컨테이너, 디자인 패턴 적용
-### 🤝 협업 툴
-![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white) <img src="https://img.shields.io/badge/ZEP-5C57F2?style=for-the-badge&logo=ZEP&logoColor=white">
 
+<br/>
 
-## 📁 폴더 구조
+## 5️⃣ 폴더 구조
 ```
 TEXT-RPG
 ├TEXT-RPG┌Character (Character.h, Character.cpp)
-│                  ├GameManager (GameManager.h, GameManager.cpp)
-│                  ├Item (Item.h, HealthPotion.h, AttackBoost.h, HealthPotion.cpp, AttackBoost.cpp)
-│                  ├LogManager (LogManager.h, LogManager.cpp)
-│                  ├Monster (Monster.h, Monster.cpp)
-│                  ├shop (shop.h, shop.cpp)
-│                  └main.cpp
+│        ├GameManager (GameManager.h, GameManager.cpp)
+│        ├Item (Item.h, HealthPotion.h, AttackBoost.h, HealthPotion.cpp, AttackBoost.cpp)
+│        ├LogManager (LogManager.h, LogManager.cpp)
+│        ├Monster (Monster.h, Monster.cpp)
+│        ├shop (shop.h, shop.cpp)
+│        └main.cpp
 │
 └TEXT-RPG.sln
 ```
 
+<br/>
 
-## 📌 개선 사항
-- (아직 작성중...)
+## 6️⃣ 개선 사항 (향후 추가하고 싶은 기능)
+
+### 🎁 아이템 시스템 확장
+- 무의미한 아이템(예: 가죽 조각)도 드롭되어 상점에서 판매 가능하도록 개선
+- 캐릭터 장비창 시스템 도입 예정 (무기, 방어구 장착 기능 포함)
+- 일부 몬스터는 일정 확률로 장비 아이템을 드롭하며, 장착 또는 판매 가능하게 구현 예정
+
+### ☑️ 전투 선택지 다양화
+- 전투 중 도망가기, 협상하기 등 비전투적 선택지를 추가하여 전략적 요소 강화
+
+### 🏹 전투 시스템 강화
+- 확률 기반의 방어 시스템 도입 (일정 확률로 공격 무효화)
+- 치명타(Critical) 시스템 구현으로 전투의 고점 및 변수 제공
+- 추후 무한 모드(Infinite Battle Mode)를 통해 반복 플레이 지원 예정
+
+### 📜 스토리 및 직업 시스템 도입
+- 간단한 프롤로그 및 세계관 추가로 몰입감 있는 RPG 경험 제공
+- 캐릭터 생성 시 직업 선택 기능 도입 (예: 전사, 마법사, 도적 등)
+- 직업별 능력치/스킬 차별화로 다양한 플레이 스타일 지원

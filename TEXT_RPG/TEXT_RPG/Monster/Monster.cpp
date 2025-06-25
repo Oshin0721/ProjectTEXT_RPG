@@ -44,46 +44,65 @@ Goblin::Goblin(int level) : BasicMonster("Goblin", level) {}
 //아이템 드랍: 50% 확률은 회복포션, 25퍼센트 확률은 공격력 증가, 나머지는 없음
 std::unique_ptr<Item> Goblin::dropItem() {
     int roll = getRandomInRange(0, 99);
-    if (roll < 50) return std::make_unique<HealthPotion>();
-    else if (roll < 75) return std::make_unique<AttackBoost>();
-    else return nullptr;
+    if (roll < 75)
+    { 
+        return std::make_unique<HealthPotion>(); 
+    }
+    else
+    {
+        return std::make_unique<AttackBoost>();
+    }
 }
 
-// 골드 드랍: 고블린은 10~30골드 드랍
+// 골드 드랍: 고블린은 5~10골드 드랍
 int Goblin::dropGold() const {
-    return getRandomInRange(5, 25);
+    return getRandomInRange(5, 10);
 }
 
 // Orc
 Orc::Orc(int level) : BasicMonster("Orc", level) {}
 
-//아이템 드랍: 40% 회복 포션 40% 공격력 증가 20% 없음
+//아이템 드랍: 50% 회복 포션 50% 공격력 증가
 std::unique_ptr<Item> Orc::dropItem() {
     int roll = getRandomInRange(0, 99);
-    if (roll < 40) return std::make_unique<HealthPotion>();
-    else if (roll < 80) return std::make_unique<AttackBoost>();
-    else return nullptr;
+    if (roll < 50)
+    {
+        return std::make_unique<HealthPotion>();
+    }
+    else
+    {
+        return std::make_unique<AttackBoost>();
+    }
 }
 
-// Orc는 10~40 골드 드랍
+// Orc는 10~20 골드 드랍
 int Orc::dropGold() const {
-    return getRandomInRange(10, 40);
+    return getRandomInRange(10, 20);
 }
 
 // Troll
 Troll::Troll(int level) : BasicMonster("Troll", level) {}
 
-//아이템 드랍: 30% 회복 포션 40% 공격력 증가 30% 없음
+//아이템 드랍: 10% 회복 포션 10% 공격력 증가 80% 없음
 std::unique_ptr<Item> Troll::dropItem() {
     int roll = getRandomInRange(0, 99);
-    if (roll < 30) return std::make_unique<HealthPotion>();
-    else if (roll < 70) return std::make_unique<AttackBoost>();
-    else return nullptr;
+    if (roll < 10)
+    {
+        return std::make_unique<HealthPotion>();
+    }
+    else if (roll < 20)
+    {
+        return std::make_unique<AttackBoost>();
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
-//골드 범위 20~50골드
+//골드 범위 50~80골드
 int Troll::dropGold() const {
-    return getRandomInRange(20, 50);
+    return getRandomInRange(50, 80);
 }
 
 // BossMonster
@@ -112,5 +131,5 @@ std::unique_ptr<Item> BossMonster::dropItem() {
 
 //100~200골드사이 드랍
 int BossMonster::dropGold() const {
-    return getRandomInRange(100, 200);
+    return getRandomInRange(150, 250);
 }

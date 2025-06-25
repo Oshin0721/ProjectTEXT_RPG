@@ -58,14 +58,14 @@
 
 ## 3️⃣ 팀 소개
 
-| 이름 | 역할 | 주요 담당 |
-|------|------|-----------|
-| 신동하 | 팀장 | Item / 발표 자료 준비 |
-| 강탁완 | 부팀장 | GameManager |
-| 곽준상 | 팀원 | Monster |
-| 이예빈 | 팀원 | Character / README 작성 |
-| 정성현 | 팀원 | Shop, Main / 발표자 |
-| 조정원 | 팀원 | GameManager, LogManager |
+| 이름 | 역할 | 주요 담당 | 깃허브 주소 |
+|------|------|-----------|-------------|
+| 신동하 | 팀장 | Item / 발표 자료 준비 | <img src="https://github.com/Oshin0721.png" width="25px;"/> <a href="https://github.com/Oshin0721">Oshin0721 |
+| 강탁완 | 부팀장 | GameManager | <img src="https://github.com/KANGTAKWAN.png" width="25px;"/> <a href="https://github.com/KANGTAKWAN">KANGTAKWAN |
+| 곽준상 | 팀원 | Monster | <img src="https://github.com/jerrykwak.png" width="25px;"/> <a href="https://github.com/jerrykwak">jerrykwak |
+| 이예빈 | 팀원 | Character / README 작성 | <img src="https://github.com/Billie-0.png" width="25px;"/> <a href="https://github.com/Billie-0">Billie-0 |
+| 정성현 | 팀원 | Shop, Main / 발표자 | <img src="https://github.com/gussen33.png" width="25px;"/> <a href="https://github.com/gussen33">gussen33 |
+| 조정원 | 팀원 | GameManager, LogManager | <img src="https://github.com/gardencho59.png" width="25px;"/> <a href="https://github.com/gardencho59">gardencho59 |
 
 <br/>
 

@@ -43,11 +43,17 @@ int main()
 		}
 		cout << "====================" << endl;
 		cout << "계속하려면 Enter 키를 누르세요...";
-		cin.ignore(); // 이전 입력 버퍼 제거
-		cin.get();
-		// Shop Event
-		char choice_shop;
-		
+
+		// 이전 입력 버퍼에 남아있는 개행문자 등 모두 비우기
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+		char ch = cin.get();
+
+		if (ch != '\n') {
+			// 남은 입력 모두 비우기
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "잘못된 입력입니다.\n";
+		}
 		// Next Stage
 		system("cls");
 		int choice_stage;

@@ -24,9 +24,9 @@ void Shop::interact() {
     cout << "상점에서 원하는 작업을 선택하세요." << endl;
     while (true) { // 상점이 열려있는 동안 반복
 
-		cout << "----------------------" << endl;
-		cout << "현재 골드: " << player->getGold()<< "G" << endl;
-		cout << "----------------------" << endl;
+		cout << "---------------------------" << endl;
+		cout << "      현재 골드: " << player->getGold()<< "G" << endl;
+		cout << "---------------------------" << endl;
         cout << "1. 아이템 구매" << endl;
         cout << "2. 아이템 판매" << endl;
         cout << "3. 상점 종료" << endl;
@@ -38,9 +38,9 @@ void Shop::interact() {
         if (choice == 1) {
             displayItems();
             int itemIndex;
-            cout << "----------------------" << endl;
-            cout << "현재 골드: " << player->getGold() << "G" << endl;
-            cout << "----------------------" << endl;
+            cout << "---------------------------" << endl;
+            cout << "      현재 골드: " << player->getGold() << "G" << endl;
+            cout << "---------------------------" << endl;
             cout << "구매할 아이템의 번호를 입력하세요(0:취소): ";
 
             cin >> itemIndex;
@@ -57,9 +57,9 @@ void Shop::interact() {
             }
             player->displayInventory();
             int itemIndex;
-            cout << "----------------------" << endl;
-            cout << "현재 골드: " << player->getGold() << "G" << endl;
-            cout << "----------------------" << endl;
+            cout << "---------------------------" << endl;
+            cout << "      현재 골드: " << player->getGold() << "G" << endl;
+            cout << "---------------------------" << endl;
             cout << "판매할 아이템의 번호를 입력하세요(0:취소): ";
             cin >> itemIndex;
             sellItem(itemIndex - 1); // 인덱스는 0부터 시작하므로 -1

@@ -51,7 +51,7 @@ void Character::restoreHealth(int amount)
 // 캐릭터 상태 출력 함수
 void Character::displayStatus() const
 {
-    std::cout << "==== 캐릭터 상태 ====" << std::endl;
+    std::cout << "===== 캐릭터 상태 =====" << std::endl;
     std::cout << "이름: " << name << " | 레벨: " << level
         << " | 체력: " << health << "/" << maxHealth
         << " | 공격력: " << attack << std::endl;

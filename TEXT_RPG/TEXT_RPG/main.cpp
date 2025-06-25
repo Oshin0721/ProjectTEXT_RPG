@@ -11,11 +11,11 @@ using namespace std;
 
 int main()
 {
-	cout << "====================" << endl;
-	cout << "  텍스트 RPG 게임" << endl;
-	cout << "====================" << endl;
-	cout << " 게임을 시작합니다." << endl;
-	cout << "====================" << endl;
+	cout << "=========================" << endl;
+	cout << "     텍스트 RPG 게임" << endl;
+	cout << "=========================" << endl;
+	cout << "    게임을 시작합니다." << endl;
+	cout << "=========================" << endl;
 	cout << "캐릭터 이름을 입력하세요:";
 	
 	string name;
@@ -29,7 +29,7 @@ int main()
 		// Battle
 		system("cls");
 		std::cout << "======== ======== ========" << endl;
-		cout << "전투 시작!" << endl;
+		cout << "        전투 시작!" << endl;
 		std::cout << "======== ======== ========" << endl;
 		gm->battle(player);
 		if (gm->isDead() || gm->isAllEnemyDefeated()) {    //isALlEnemyDegeated 사용 안됨. 꼭 필요한가?
@@ -42,7 +42,7 @@ int main()
 				break;
 			}
 		}
-		cout << "====================" << endl;
+		cout << "======== ======== ========" << endl;
 		cout << "계속하려면 Enter 키를 누르세요...";
 
 		// 이전 입력 버퍼에 남아있는 개행문자 등 모두 비우기
@@ -61,7 +61,7 @@ int main()
 		
 		while (true)
 		{
-			cout << "====================" << endl;
+			cout << "=======================" << endl;
 			cout << "1. 캐릭터 상태 보기" << endl;
 			cout << "=======================" << endl;
 			cout << "2. 인벤토리 보기" << endl;

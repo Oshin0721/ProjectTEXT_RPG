@@ -94,7 +94,7 @@ void LogManager::PrintAllLogs() {
 
 #include <thread>
 #include <chrono>
-void SimpleScrollLine(const std::string& text, int delay_ms = 500) {
+void SimpleScrollLine(const std::string& text, int delay_ms) {
 	std::cout << text << std::endl;
 	std::this_thread::sleep_for(std::chrono::milliseconds(delay_ms));
 }

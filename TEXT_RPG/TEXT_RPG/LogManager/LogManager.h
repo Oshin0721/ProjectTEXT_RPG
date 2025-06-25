@@ -49,4 +49,6 @@ public:
 	void PrintAllLogsSlow();
 
 };
+
+void SimpleScrollLine(const std::string& text, int delay_ms = 500);
 #endif

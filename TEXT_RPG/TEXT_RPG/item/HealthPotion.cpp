@@ -7,7 +7,7 @@
 using namespace std;
 
 HealthPotion::HealthPotion()
-	: name("회복 물약"), healthRestore(50), buyPrice(50), sellPrice(40) {} //초기값 //표션->물약 수정
+	: name("회복 물약"), healthRestore(250), buyPrice(50), sellPrice(40) {} //초기값 //표션->물약 수정
 
 string HealthPotion::getName() const
 {

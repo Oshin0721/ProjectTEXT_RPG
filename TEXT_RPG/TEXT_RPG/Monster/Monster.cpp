@@ -73,7 +73,7 @@ int Orc::dropGold() const {
 // Troll
 Troll::Troll(int level) : BasicMonster("Troll", level) {}
 
-//아이템 드랍: 30% 회복 포션 40% 공격력 증가 20% 없음
+//아이템 드랍: 30% 회복 포션 40% 공격력 증가 30% 없음
 std::unique_ptr<Item> Troll::dropItem() {
     int roll = getRandomInRange(0, 99);
     if (roll < 30) return std::make_unique<HealthPotion>();

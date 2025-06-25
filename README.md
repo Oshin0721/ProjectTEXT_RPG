@@ -45,12 +45,12 @@
 
 ## 2️⃣ 실행 방법
 
-### 요구 환경
+### 🔹 요구 환경
 - Visual Studio 2022
 - C++17 지원
 - 빌드 시스템: MSVC (Debug / Release)
 
-### 실행 방법
+### 🔹 실행 방법
 1. main.cpp에서 프로그램 시작
 2. Visual Studio 기준: Ctrl + F5 또는 디버깅 없이 시작
 

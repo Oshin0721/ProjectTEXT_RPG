@@ -5,6 +5,7 @@
 #include "shop/shop.h"
 #include "LogManager/LogManager.h"
 #include <cctype>
+#include <limits>
 using namespace std;
 
 
@@ -66,6 +67,15 @@ int main()
 			cout << "5. 게임 종료" << endl;
 			cout << "=======================" << endl;
 			cin >> choice_stage;
+
+			// 입력값이 숫자가 아닐 경우 처리
+			if (cin.fail()) {
+				cin.clear(); // 입력 스트림 오류 상태 초기화
+				cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 버퍼 비우기
+				system("cls");
+				cout << "잘못된 입력입니다. 숫자를 입력해 주세요." << endl;
+				continue;
+			}
 			if (choice_stage == 1) {
 				system("cls");
 				player->displayStatus();
